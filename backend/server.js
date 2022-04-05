@@ -1,8 +1,8 @@
-import express from 'express';
-import mongoose from 'mongoose'; 
-import dotenv from 'dotenv'; 
-import usersRouter from './routes/users.route.js';
-import bodyParser from 'body-parser'; 
+require('express');
+require('mongoose'); 
+require('dotenv'); 
+require('./routes/users.route.js');
+require('body-parser'); 
 
 const app = express();
 const port = 5000;
