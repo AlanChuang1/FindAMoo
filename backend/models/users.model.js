@@ -6,7 +6,9 @@ const usersSchema = new Schema(
     {
       name: { type: [String], required: true },
       email: { type: String, required: true },
-      event_list: { type: [String], required: true },
+      collectedIDs: { type: [String], required: true },
+      favoriteID: { type: [String], required: true },
+      huntStreak: { type: [String], required: true },
     },
     {
       timestamps: true,
