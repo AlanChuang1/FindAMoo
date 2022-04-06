@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose'; 
 import dotenv from 'dotenv'; 
+import usersRouter from './routes/users.route.js';
 import bodyParser from 'body-parser'; 
 
 const app = express();
@@ -8,6 +9,7 @@ const port = 5000;
 
 dotenv.config(); //loads variables from env
 app.use(bodyParser.json());
+app.use('/users', usersRouter);
 
 
 app.listen(port, () => {
