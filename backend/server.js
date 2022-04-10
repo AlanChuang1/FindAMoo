@@ -2,8 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose'; 
 import cors from 'cors';
 import dotenv from 'dotenv'; 
-import usersRouter from './routes/users.routes.js';
-import authRouter from './routes/auth.js';
+import usersRouter from './routes/users.route.js'
+import authRouter from './routes/auth.js'
 import bodyParser from 'body-parser'; 
 import passport from 'passport';
 import session from 'express-session';
