@@ -4,6 +4,7 @@ import Cow from '../models/cows.model.js';
 const router = express.Router();
 
 function getDetailsFromRequest(req) {
+
     const S3link = req.body.S3link;
     const layersID = req.body.layersID;
     const location = {
