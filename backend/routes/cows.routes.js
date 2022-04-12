@@ -6,7 +6,10 @@ const router = express.Router();
 function getDetailsFromRequest(req) {
     const S3link = req.body.S3link;
     const layersID = req.body.layersID;
-    const location = req.body.location;
+    const location = {
+        lat: req.body.lat,
+        lon: req.body.lon
+    }
     const collectedDate = req.body.collectedDate;
     const name = req.body.name;
 
@@ -22,19 +25,8 @@ router.route("/get_cow/:id").get((req, res) => {
 
 // POST request (create)
 router.route('/add_cow').post((req, res) => { 
-    const S3link = req.body.S3link;
-    const layersID = req.body.layersID;
-    const location = req.body.location;
-    const collectedDate = req.body.collectedDate;
-    const name = req.body.name;
-
-    const newCow = new Cow({
-        S3link,
-        layersID,
-        location,
-        collectedDate,
-        name
-    });
+    const detailsObj = getDetailsFromRequest(req);
+    const newCow = new Cow(detailsObj);
 
     newCow.save()
         .then(() => res.json(newCow))
