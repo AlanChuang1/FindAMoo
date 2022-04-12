@@ -35,4 +35,18 @@ router.route('/add_cow').post((req, res) => {
     return req, res;
 });
 
+// PUT request
+router.route("/put/:id").put((req, res) => {
+    Cow.findById(req.params.id)
+        .then(cow => {
+            const detailsObj = getDetailsFromRequest(req); 
+            cow.overwrite(detailsObj); 
+            cow.save()
+            .then(() => res.json(cow))
+            .catch(err => res.status(400).json('Error: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+        return req, res; 
+});
+
 export default router;
