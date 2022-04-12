@@ -4,6 +4,7 @@ import Cow from '../models/cows.model.js';
 const router = express.Router();
 
 function getDetailsFromRequest(req) {
+
     const S3link = req.body.S3link;
     const layersID = req.body.layersID;
     const location = req.body.location;
@@ -40,6 +41,22 @@ router.route('/add_cow').post((req, res) => {
         .then(() => res.json(newCow))
         .catch(err => res.status(400).json('Error: ' + err));
     return req, res;
+
+    const name = req.body.name;
+    return {name};
+}
+
+router.route("/put/:id").put((req, res) => {
+    Cow.findById(req.params.id)
+        .then(cow => {
+            const detailsObj = getDetailsFromRequest(req); 
+            cow.overwrite(detailsObj); 
+            cow.save()
+            .then(() => res.json(cow))
+            .catch(err => res.status(400).json('Error: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+        return req, res; 
 });
 
 export default router;
