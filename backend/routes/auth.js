@@ -15,9 +15,7 @@ router.get(
       	failureRedirect: "failureURL",
     }),
     function (req, res, next) {
-      	console.log("second redirect", req.user);
-      	//res.redirect("http://localhost:19006/");
-        res.redirect("http://localhost:19006/" + req.user);
+        res.redirect("http://localhost:19006/" + req.user.email + req.user.name);
     }
 );
 

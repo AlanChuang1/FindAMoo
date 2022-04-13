@@ -16,26 +16,29 @@ export default function (passport){
         const newUser = {
             name: profile.displayName,
             email: profile._json.email,
-            event_list: ""
+            collectedIDs: "",
+            favoriteID: "",
+            huntStreak: ""
         }
         try{
             //console.log("running" + profile._json.email);
             let user = await User.findOne({ email: profile._json.email});
-            console.log(`*******App listening at http://localhost:${port}`)
-            axios.get("/get_user/:6219894693bcacd74d426992")
-                .then(function (response) {
-                    let stringified = JSON.stringify(response.data);
-                    let parsed = JSON.parse(stringified);
-                    console.log(response.data);
-                })  
-                .catch(function (error) {
-                    console.log(error);
-                });
-
+            
+            // console.log(`*******App listening at http://localhost:${port}`)
+            // axios.get("/get_user/:6219894693bcacd74d426992")
+            //     .then(function (response) {
+            //         let stringified = JSON.stringify(response.data);
+            //         let parsed = JSON.parse(stringified);
+            //         console.log(response.data);
+            //     })  
+            //     .catch(function (error) {
+            //         console.log(error);
+            //     });
+            //console.log(newUser);
             if(user) {
                 done(null, user); // check if exist
             }else{
-                user = await User.create(newUser); 
+                await axios.post("/users/add_user/" + {newUser})
                 done(null, user)
             }
         } catch (err) {
