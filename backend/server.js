@@ -7,10 +7,15 @@ import authRouter from './routes/auth.js';
 import bodyParser from 'body-parser'; 
 import passport from 'passport';
 import session from 'express-session';
-import passportConfig from "./passport.js";
+import passportConfig from './passport.js';
+import connectMongo from 'connect-mongo'; 
+
+import { ensureAuth } from './middleware/auth.js';
+
 
 const app = express();
 const port = 5000;
+const MongoStore = connectMongo(session);
 
 dotenv.config(); //loads variables from env
 app.use(cors()); //https://daveceddia.com/access-control-allow-origin-cors-errors-in-react-express/
@@ -21,7 +26,10 @@ app.use(
     session({
         secret: 'keyboard cat',
         resave: false,
-        saveUninitialized: false //dont create session until stored
+        saveUninitialized: false, //dont create session until stored
+        store: new MongoStore({
+            mongooseConnection : mongoose.connection 
+        })
     })
 );
 
@@ -31,8 +39,13 @@ app.use(passport.session())
 
 app.use(bodyParser.json());
 
+// app.use(cookiesSession ({
+//     maxAge: 24 * 60 * 60 * 1000,
+//     keys: ["keyboard cat"]
+// }))
+
 //routes
-app.use('/users', usersRouter)
+app.use('/users', ensureAuth, usersRouter)
 app.use('/auth', authRouter)
 
 
