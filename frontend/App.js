@@ -2,6 +2,7 @@ import { StyleSheet, Text, TextInput, Alert, View, SafeAreaView, Button, useWind
 import axios from 'axios';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import Google from "./GoogleLogin.js"
 
 const Separator = () => (
 	<View style={styles.separator} />
@@ -105,30 +106,31 @@ const checkCrendentials = async () => {
 
 
 export default function App() {
-  	return (
-		<NavigationContainer>
-			<SafeAreaView style={styles.container}>
-			<View>
-				<Button title="LOGIN" onPress={() => loginAuth() } />
-				<Separator/>
-				<Button title="GET" onPress={() => { getCall() }}/>
-				<TextInput
-					style={{
-						height: 40, 
-						borderColor: 'gray', 
-						borderWidth: 1
-					}}
-					placeholder="ID here"
-					onFocus={() => {
-						GetUserId = null; 
-					}}
-					onChangeText = {(newText) => {
-						GetUserId = newText; 
-					}}
-				/>
-				<Button title="Add to async" onPress={() => { saveCredentials("testing") }}/>
-			</View>
-			</SafeAreaView>
-		</NavigationContainer>
-	);
+	Google();
+  	// return (
+	// 	<NavigationContainer>
+	// 		<SafeAreaView style={styles.container}>
+	// 		<View>
+	// 			<Button title="LOGIN" onPress={() => loginAuth() } />
+	// 			<Separator/>
+	// 			<Button title="GET" onPress={() => { getCall() }}/>
+	// 			<TextInput
+	// 				style={{
+	// 					height: 40, 
+	// 					borderColor: 'gray', 
+	// 					borderWidth: 1
+	// 				}}
+	// 				placeholder="ID here"
+	// 				onFocus={() => {
+	// 					GetUserId = null; 
+	// 				}}
+	// 				onChangeText = {(newText) => {
+	// 					GetUserId = newText; 
+	// 				}}
+	// 			/>
+	// 			<Button title="Add to async" onPress={() => { saveCredentials("testing") }}/>
+	// 		</View>
+	// 		</SafeAreaView>
+	// 	</NavigationContainer>
+	// );
 }
