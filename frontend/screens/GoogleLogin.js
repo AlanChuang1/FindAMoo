@@ -15,7 +15,7 @@ export default function GoogleLogin() {
 	const [request, response, promptAsync] = Google.useAuthRequest({
 		expoClientId: '805957129584-bstgfdmvh6sh1ks4tbjrpi57th2afm4p.apps.googleusercontent.com',
 		iosClientId: 'GOOGLE_GUID.apps.googleusercontent.com',
-		androidClientId: 'GOOGLE_GUID.apps.googleusercontent.com',
+		androidClientId: '805957129584-6p7smpdhcvpb5ddqo3l290093k8d84cs.apps.googleusercontent.com',
 		webClientId:  '805957129584-bstgfdmvh6sh1ks4tbjrpi57th2afm4p.apps.googleusercontent.com',
 	});
 
