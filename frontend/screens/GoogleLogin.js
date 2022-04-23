@@ -34,6 +34,7 @@ export default function GoogleLogin() {
 
 	async function getMooUserData(){
 		// API calls to our own APIs 
+		
 	}
 	async function getGoogleUserData(){
 		let googleResult = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
@@ -43,15 +44,15 @@ export default function GoogleLogin() {
 			},
 		});
 		
-		console.log("GUD"); 
+		//console.log("GUD"); 
 		setUserData(googleResult.data);
 		return googleResult.data;
 	}
 
 	function showUserData() {
-		console.log("SUD"); 
+		//console.log("SUD"); 
 		if (userData) {
-			console.log("USER DATA FOUND")
+			//console.log("USER DATA FOUND")
 			return (
 				<View>
 					<Image source={{uri: userData.picture}} />
@@ -59,9 +60,9 @@ export default function GoogleLogin() {
 					<Text>{userData.email}</Text>
 				</View>
 			);
-		} else {
+		} /*else {
 			console.log("NO USER DATA"); 
-		}
+		}*/
 	}
 	return (
 		<View>
@@ -69,13 +70,16 @@ export default function GoogleLogin() {
 			<Button
 				disabled={!request}
 				title="Login"
-				onPress={
-					accessToken ? 
-					getUserData : 
+				onPress={() => {
+					/*accessToken ? 
+					getGoogleUserData : 
 					() => { 
 						promptAsync({useProxy: false, showInRecents: true}) 
+					}*/
+					if (!accessToken) {
+						promptAsync({useProxy: false, showInRecents: true});
 					}
-				}
+				}}
 			/>
 			<StatusBar style="auto"/>
 		</View>
