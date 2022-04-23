@@ -49,7 +49,7 @@ export default function GoogleLogin() {
 		return googleResult.data;
 	}
 
-	function showUserData() {
+	function showAllUserData() {
 		//console.log("SUD"); 
 		if (userData) {
 			//console.log("USER DATA FOUND")
@@ -69,7 +69,7 @@ export default function GoogleLogin() {
 			{showAllUserData()}
 			<Button
 				disabled={!request}
-				title="Login"
+				title={accessToken ? "Logout" : "Login"}
 				onPress={() => {
 					/*accessToken ? 
 					getGoogleUserData : 
