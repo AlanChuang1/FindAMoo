@@ -7,7 +7,8 @@ import axios from 'axios';
 WebBrowser.maybeCompleteAuthSession();
 
 export default function GoogleLogin() {
-	const [accesstoken, setAccessToken] = React.useState();
+	const [accessToken, setAccessToken] = React.useState();
+	const [userData, setUserData] = React.useState(); 
 
 	const [request, response, promptAsync] = Google.useAuthRequest({
 		expoClientId: '805957129584-bstgfdmvh6sh1ks4tbjrpi57th2afm4p.apps.googleusercontent.com',
@@ -20,7 +21,7 @@ export default function GoogleLogin() {
 		if (response?.type === 'success') {
 			setAccessToken(response.authentication.accessToken);
 		}
-	}, [response]);
+	}, [response])
 
 	async function getUserData(){
 		let response = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
@@ -29,15 +30,28 @@ export default function GoogleLogin() {
 			  Authorization: `Bearer ${accesstoken}`,
 			},
 		});
+
+		response.json.then((data) => {
+			setUserData(data); 
+		})
 		return response.data;
 	}
+
+	function showUserData() {
+		if (userData) {
+		  return (
+			<View>
+			  <Text>Welcome {userData.name}</Text>
+			  <Text>{userData.email}</Text>
+			</View>
+		  );
+		}
+	  }
 	return (
 		<Button
 		disabled={!request}
 		title="Login"
-		onPress={() => {
-			promptAsync();
-		}}
+		onPress={accessToken ? getUserData() : () => {promptAsync()}}
 		/>
 	);
 }
