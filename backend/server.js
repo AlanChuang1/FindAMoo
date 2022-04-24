@@ -37,15 +37,10 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(bodyParser.json());
-
-// app.use(cookiesSession ({
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: ["keyboard cat"]
-// }))
+app.use(bodyParser.json()); 
 
 //routes
-app.use('/users', ensureAuth, usersRouter)
+app.use('/users', usersRouter)
 app.use('/auth', authRouter)
 
 
