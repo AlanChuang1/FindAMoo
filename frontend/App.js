@@ -2,7 +2,6 @@ import { StyleSheet, Text, TextInput, Alert, View, SafeAreaView, Button, useWind
 import axios from 'axios';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AsyncStorage from '@react-native-async-storage/async-storage'; 
 import GoogleLogin from "./screens/GoogleLogin.js"
 
 const iAxios = axios.create({
