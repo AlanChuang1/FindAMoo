@@ -81,10 +81,10 @@ export default function GoogleLogin() {
 		return googleResult.data;
 	}
 
-	function showUserData() {
-		console.log("SUD"); 
+	function showAllUserData() {
+		//console.log("SUD"); 
 		if (userData) {
-			console.log("USER DATA FOUND")
+			//console.log("USER DATA FOUND")
 			return (
 				<View>
 					<Image source={{uri: userData.picture}} />
@@ -92,23 +92,26 @@ export default function GoogleLogin() {
 					<Text>{userData.email}</Text>
 				</View>
 			);
-		} else {
+		} /*else {
 			console.log("NO USER DATA"); 
-		}
+		}*/
 	}
 	return (
 		<View>
-			{showUserData()}
+			{showAllUserData()}
 			<Button
 				disabled={!request}
-				title="Login"
-				onPress={
-					accessToken ? 
-					getMooUserData : 
+				title={accessToken ? "Logout" : "Login"}
+				onPress={() => {
+					/*accessToken ? 
+					getGoogleUserData : 
 					() => { 
 						promptAsync({useProxy: false, showInRecents: true}) 
+					}*/
+					if (!accessToken) {
+						promptAsync({useProxy: false, showInRecents: true});
 					}
-				}
+				}}
 			/>
 			<StatusBar style="auto"/>
 		</View>
