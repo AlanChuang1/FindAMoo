@@ -1,22 +1,24 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import * as React from 'react';
-import { StatusBar, StyleSheet, Image, Text, TextInput, Alert, View, SafeAreaView, Button, useWindowDimensions } from 'react-native';
+import { StatusBar, Image, Text, View, Button } from 'react-native';
 import axios from 'axios';
-import {saveCredentials, checkCrendentials} from '../Utils.js';
+import {saveCredentials, checkCrendentials, saveUserData, getUserData, logout} from '../Utils.js';
 
 const server = axios.create({
 	baseURL: "http://localhost:5000",
 	timeout: 1000
 })
 
-
 WebBrowser.maybeCompleteAuthSession();
 
-// Still need to save to async storage 
 export default function GoogleLogin() {
 	const [accessToken, setAccessToken] = React.useState();
 	const [userData, setUserData] = React.useState(); 
+	// For keeping state of login/logout button.
+	const [LoggedIn, setLoggedIn] = React.useState(false);
+
+	
 
 	const [request, response, promptAsync] = Google.useAuthRequest({
 		expoClientId: '805957129584-bstgfdmvh6sh1ks4tbjrpi57th2afm4p.apps.googleusercontent.com',
@@ -25,23 +27,43 @@ export default function GoogleLogin() {
 		webClientId:  '805957129584-1gsvpellt6ojk12oupl1o5jol5om4b9n.apps.googleusercontent.com',
 	});
 
+	// On response success, update access token.
 	React.useEffect(() => {
 		if (response?.type === 'success') {
 			setAccessToken(response.authentication.accessToken);
 		}
 	}, [response])
 
+
+	// Checks if there is an accesstoken, if there is then attempt to fetch
+	// user's google data. After this, check if the user exists by trying to
+	// getMooUserData(), and then save their user data on async storage.
 	React.useEffect(() => {
 		const fetchProfile = async () => {
+			console.log("fetching user");
 			if (accessToken) {
-				let googleUserData = await fetchUserInfo();
-				console.log(googleUserData);
-				getMooUserData(googleUserData); 
+				const googleUserData = await fetchUserInfo();
+				const user = (await getMooUserData(googleUserData)).data; 
+				
+				console.log(user);
+				// Save user credentials and user information.
+				await saveCredentials(user.id);
+				await saveUserData(JSON.stringify(user));
+
+
+				let details = await checkCrendentials();
+				let userData = await getUserData();
+				console.log("Get credentials: "+ details);
+				console.log("Get user information: ")
+				console.log(JSON.parse(userData));
+				
 			}
 		}
 		fetchProfile();
 	}, [accessToken])
 
+
+	// Attempt a GET request to backend server and check if the user exists.
 	async function getMooUserData(googleUserData){
 		// API calls to our own APIs 
 		let user = await server.get("/users/get_user/" + googleUserData.sub);
@@ -58,12 +80,15 @@ export default function GoogleLogin() {
 				huntStreak: [""]
 			}
 
-			await server.post("/users/add_user", newUser).then((response) => {
-				console.log(response);
-			}, (error) => {
-				console.log(error);
-			});
+			await server.post("/users/add_user", newUser)
+				.then((response) => {
+					user = response;
+				}, (error) => {
+					console.log(error);
+				}
+			);
 		}
+		return user;
 	}
 
 	// Fetches user information from their google account. 
@@ -81,10 +106,9 @@ export default function GoogleLogin() {
 		return googleResult.data;
 	}
 
+	// Used for displaying user information once they logged in.
 	function showAllUserData() {
-		//console.log("SUD"); 
 		if (userData) {
-			//console.log("USER DATA FOUND")
 			return (
 				<View>
 					<Image source={{uri: userData.picture}} />
@@ -92,10 +116,10 @@ export default function GoogleLogin() {
 					<Text>{userData.email}</Text>
 				</View>
 			);
-		} /*else {
-			console.log("NO USER DATA"); 
-		}*/
+		} 
 	}
+
+	// Page that will allow the user to login.
 	return (
 		<View>
 			{showAllUserData()}
@@ -103,13 +127,18 @@ export default function GoogleLogin() {
 				disabled={!request}
 				title={accessToken ? "Logout" : "Login"}
 				onPress={() => {
-					/*accessToken ? 
-					getGoogleUserData : 
-					() => { 
-						promptAsync({useProxy: false, showInRecents: true}) 
-					}*/
-					if (!accessToken) {
-						promptAsync({useProxy: false, showInRecents: true});
+					if (LoggedIn == false){
+						// Check if there is an access token, if there isn't that means user is not logged in.
+						if (!accessToken) {
+							promptAsync({useProxy: false, showInRecents: true});
+							setLoggedIn(true);
+						}
+					} else if (LoggedIn == true) {
+						// Removes credentials from local storage and deletes existing user data + access token.
+						logout();
+						setAccessToken();
+						setUserData();
+						setLoggedIn(false);
 					}
 				}}
 			/>
