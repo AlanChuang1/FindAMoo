@@ -41,15 +41,14 @@ export default function GoogleLogin() {
 	// getMooUserData(), and then save their user data on async storage.
 	React.useEffect(() => {
 		const fetchProfile = async () => {
-			console.log("fetching user");
 			if (accessToken) {
 				const googleUserData = await fetchUserInfo();
 				const user = (await getMooUserData(googleUserData)).data; 
 				
-				console.log(user);
+				console.log("hello", user);
 				// Save user credentials and user information.
-				// await saveCredentials(user.id);
-				// await saveUserData(JSON.stringify(user));
+				await saveCredentials(user.id);
+				await saveUserData(JSON.stringify(user));
 
 
 				// let details = await checkCrendentials();
@@ -101,7 +100,6 @@ export default function GoogleLogin() {
 			},
 		});
 		
-		console.log("GUD"); 
 
 		setUserData(googleResult.data);
 		return googleResult.data;
@@ -120,6 +118,16 @@ export default function GoogleLogin() {
 		} 
 	}
 
+	/** NOTE: need to test on android and iOS once server is hosted, since we can only run on the web
+	 *   
+	 * 	Feature fix: not needed, but when clicking in there is a redirect notification that the user has to confirm
+	 *  fix: proxy: false;
+	 * 
+	 *  Otherwise everything is functioning.
+	 * **/
+
+	
+	
 	return (
 		<View>
 			{showAllUserData()}
@@ -128,13 +136,10 @@ export default function GoogleLogin() {
 				title={accessToken ? "Logout" : "Login"}
 				onPress={() => {
 
-					if (!accessToken) {
-						promptAsync({useProxy: false, showInRecents: true});
-					}
 					if (LoggedIn == false){
 						// Check if there is an access token, if there isn't that means user is not logged in.
 						if (!accessToken) {
-							promptAsync({useProxy: false, showInRecents: true});
+							promptAsync({showInRecents: true});
 							setLoggedIn(true);
 						}
 					} else if (LoggedIn == true) {
