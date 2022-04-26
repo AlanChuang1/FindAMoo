@@ -66,9 +66,9 @@ export default function GoogleLogin() {
 	// Attempt a GET request to backend server and check if the user exists.
 	async function getMooUserData(googleUserData){
 		// API calls to our own APIs 
-		let user = await server.get("/users/get_user/" + googleUserData.sub);
+		let responseUserData = await server.get("/users/get_user/" + googleUserData.sub);
 
-        if (user === null){
+        if (responseUserData === null){
 			// User does not exist, so create a user.
 			console.log("Creating user");
 			const newUser = {
@@ -125,9 +125,6 @@ export default function GoogleLogin() {
 	 * 
 	 *  Otherwise everything is functioning.
 	 * **/
-
-	
-	
 	return (
 		<View>
 			{showAllUserData()}
