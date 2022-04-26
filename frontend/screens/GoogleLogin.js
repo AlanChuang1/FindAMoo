@@ -22,7 +22,7 @@ export default function GoogleLogin() {
 
 	const [request, response, promptAsync] = Google.useAuthRequest({
 		expoClientId: '805957129584-bstgfdmvh6sh1ks4tbjrpi57th2afm4p.apps.googleusercontent.com',
-		iosClientId: 'GOOGLE_GUID.apps.googleusercontent.com',
+		iosClientId: '805957129584-s2o0uo0j5kllnpov8c3gva6gp8bko73b.apps.googleusercontent.com',
 		androidClientId: '805957129584-6p7smpdhcvpb5ddqo3l290093k8d84cs.apps.googleusercontent.com',
 		webClientId:  '805957129584-1gsvpellt6ojk12oupl1o5jol5om4b9n.apps.googleusercontent.com',
 
@@ -120,7 +120,6 @@ export default function GoogleLogin() {
 		} 
 	}
 
-	// Page that will allow the user to login.
 	return (
 		<View>
 			{showAllUserData()}
@@ -128,12 +127,24 @@ export default function GoogleLogin() {
 				disabled={!request}
 				title={accessToken ? "Logout" : "Login"}
 				onPress={() => {
+
+					if (!accessToken) {
+						promptAsync({useProxy: false, showInRecents: true});
+					}
+					if (LoggedIn == false){
 						// Check if there is an access token, if there isn't that means user is not logged in.
 						if (!accessToken) {
-							promptAsync({useProxy: false});
+							promptAsync({useProxy: false, showInRecents: true});
 							setLoggedIn(true);
 						}
-				
+					} else if (LoggedIn == true) {
+						// Removes credentials from local storage and deletes existing user data + access token.
+						logout();
+						setAccessToken();
+						setUserData();
+						setLoggedIn(false);
+
+					}
 				}}
 			/>
 			<StatusBar style="auto"/>
