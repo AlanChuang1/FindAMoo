@@ -18,13 +18,14 @@ export default function GoogleLogin() {
 	// For keeping state of login/logout button.
 	const [LoggedIn, setLoggedIn] = React.useState(false);
 
-	
+
 
 	const [request, response, promptAsync] = Google.useAuthRequest({
 		expoClientId: '805957129584-bstgfdmvh6sh1ks4tbjrpi57th2afm4p.apps.googleusercontent.com',
 		iosClientId: 'GOOGLE_GUID.apps.googleusercontent.com',
 		androidClientId: '805957129584-6p7smpdhcvpb5ddqo3l290093k8d84cs.apps.googleusercontent.com',
 		webClientId:  '805957129584-1gsvpellt6ojk12oupl1o5jol5om4b9n.apps.googleusercontent.com',
+
 	});
 
 	// On response success, update access token.
@@ -47,15 +48,15 @@ export default function GoogleLogin() {
 				
 				console.log(user);
 				// Save user credentials and user information.
-				await saveCredentials(user.id);
-				await saveUserData(JSON.stringify(user));
+				// await saveCredentials(user.id);
+				// await saveUserData(JSON.stringify(user));
 
 
-				let details = await checkCrendentials();
-				let userData = await getUserData();
-				console.log("Get credentials: "+ details);
-				console.log("Get user information: ")
-				console.log(JSON.parse(userData));
+				// let details = await checkCrendentials();
+				// let userData = await getUserData();
+				// console.log("Get credentials: "+ details);
+				// console.log("Get user information: ")
+				// console.log(JSON.parse(userData));
 				
 			}
 		}
@@ -68,7 +69,7 @@ export default function GoogleLogin() {
 		// API calls to our own APIs 
 		let user = await server.get("/users/get_user/" + googleUserData.sub);
 
-        if (!user){
+        if (user === null){
 			// User does not exist, so create a user.
 			console.log("Creating user");
 			const newUser = {
@@ -127,19 +128,12 @@ export default function GoogleLogin() {
 				disabled={!request}
 				title={accessToken ? "Logout" : "Login"}
 				onPress={() => {
-					if (LoggedIn == false){
 						// Check if there is an access token, if there isn't that means user is not logged in.
 						if (!accessToken) {
-							promptAsync({useProxy: false, showInRecents: true});
+							promptAsync({useProxy: false});
 							setLoggedIn(true);
 						}
-					} else if (LoggedIn == true) {
-						// Removes credentials from local storage and deletes existing user data + access token.
-						logout();
-						setAccessToken();
-						setUserData();
-						setLoggedIn(false);
-					}
+				
 				}}
 			/>
 			<StatusBar style="auto"/>

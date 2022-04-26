@@ -4,8 +4,8 @@
     "slug": "FindAMoo",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme" : "exp",
     "icon": "./assets/icon.png",
-    "scheme": "findamoo",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
