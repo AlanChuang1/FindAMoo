@@ -1,5 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
+// Utils.js is for holding helper functions that will be used by multiple components/js files. 
+
 // Saves value, to the key in AsyncStorage. Value is expected to be a string.
 const saveData = async (key, value) => {
 	try { 
@@ -46,7 +48,7 @@ export const logout = async () => {
 	console.log(checkCrendentials);
 }
 
-// 
+// Saving user data (cows, id, etc) and removing user. 
 export const saveUserData = async (userData) => {
 	saveData('userData', userData);
 }
