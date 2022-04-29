@@ -2,7 +2,7 @@ import { StyleSheet, Text, TextInput, Alert, View, SafeAreaView, Button, useWind
 import axios from 'axios';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import GoogleLogin from "./screens/GoogleLogin.js"
+import GoogleLogin from "./components/GoogleLogin.js"
 
 const Stack = createNativeStackNavigator();
 
@@ -11,9 +11,8 @@ const App = () => {
 		<NavigationContainer>
 		<Stack.Navigator>
 			<Stack.Screen
-			name="Home"
+			name="Login"
 			component={GoogleLogin}
-			options={{ title: 'Welcome' }}
 			/>
 		</Stack.Navigator>
 		</NavigationContainer>
