@@ -6,9 +6,8 @@ import usersRouter from './routes/users.routes.js';
 import cowsRouter from './routes/cows.routes.js';
 import authRouter from './routes/auth.js';
 import bodyParser from 'body-parser'; 
-import passport from 'passport';
-import session from 'express-session';
-import passportConfig from "./passport.js";
+
+
 
 const app = express();
 const port = 5000;
@@ -16,27 +15,13 @@ const port = 5000;
 dotenv.config(); //loads variables from env
 app.use(cors()); //https://daveceddia.com/access-control-allow-origin-cors-errors-in-react-express/
 
-passportConfig(passport);
 
-app.use(
-    session({
-        secret: 'keyboard cat',
-        resave: false,
-        saveUninitialized: false //dont create session until stored
-    })
-);
-
-//passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
-
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 
 //routes
 app.use('/users', usersRouter)
 app.use('/cows', cowsRouter)
 app.use('/auth', authRouter)
-
 
 // Setting up port and server 
 app.listen(port, () => {

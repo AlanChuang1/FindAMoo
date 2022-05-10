@@ -36,7 +36,7 @@ router.route('/add_cow').post((req, res) => {
 
     const name = req.body.name;
     return {name};
-}
+},
 
 router.route("/put/:id").put((req, res) => {
     Cow.findById(req.params.id)
