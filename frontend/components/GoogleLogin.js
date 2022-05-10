@@ -5,8 +5,8 @@ import { StatusBar, Image, Text, View, Button, Pressable } from 'react-native';
 import axios from 'axios';
 import {saveCredentials, checkCrendentials, saveUserData, getUserData, logout} from '../Utils.js';
 import styles from './css/GoogleLogin.style.js';
-import MainCow from './images/cows/React-icon.svg';
-
+import MainCow from './images/cows/cowmain_front.svg';
+import defaultStyles from './css/DefaultFonts.style';
 
 const server = axios.create({
 	baseURL: "http://localhost:5000",
@@ -15,7 +15,7 @@ const server = axios.create({
 
 WebBrowser.maybeCompleteAuthSession();
 
-export default function GoogleLogin() {
+export default function GoogleLogin({ navigation }) {
 	const [accessToken, setAccessToken] = React.useState();
 	const [userData, setUserData] = React.useState(); 
 	// For keeping state of login/logout button.
@@ -59,10 +59,20 @@ export default function GoogleLogin() {
 				// console.log("Get credentials: "+ details);
 				// console.log("Get user information: ")
 				// console.log(JSON.parse(userData));
-				
+				return true;
 			}
+			return false;
 		}
-		fetchProfile();
+		fetchProfile()
+			.then( (response) => {
+				if (response)
+					navigation.navigate('Introduction');
+			})
+			.catch( (error) => {
+				console.log("Error failed to get profile: " + error);
+			});
+		
+		//navigation.navigate('Introduction');
 	}, [accessToken])
 
 
@@ -71,7 +81,7 @@ export default function GoogleLogin() {
 		// API calls to our own APIs 
 		let responseUserData = await server.get("/users/get_user/" + googleUserData.sub);
 
-        if (responseUserData === null){
+        if (responseUserData){
 			// User does not exist, so create a user.
 			console.log("Creating user");
 			const newUser = {
@@ -85,13 +95,13 @@ export default function GoogleLogin() {
 
 			await server.post("/users/add_user", newUser)
 				.then((response) => {
-					user = response;
+					responseUserData = response;
 				}, (error) => {
 					console.log(error);
 				}
 			);
 		}
-		return user;
+		return responseUserData;
 	}
 
 	// Fetches user information from their google account. 
@@ -119,10 +129,12 @@ export default function GoogleLogin() {
 	 * **/
 	return (
 		<View style={styles.container}>
-			<MainCow/>
-			<Text style={styles.titleText}>FindAMoo</Text>
+			<View style={styles.imgContainer}>
+				<Image source={MainCow} style={styles.cowImage}></Image>
+			</View>
+			<Text style={[styles.titleText, defaultStyles.h1Text]}>FindAMoo</Text>
 			<Pressable
-				style={styles.loginButton}
+				style={[styles.loginButton, defaultStyles.buttonText]}
 				disabled={!request}
 				title='Login'
 				onPress={() => {
