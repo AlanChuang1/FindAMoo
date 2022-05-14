@@ -33,9 +33,9 @@ separator: {
 export default StyleSheet.create({
     textBox: {
         backgroundColor: "#F9F9F9",
-        borderWidth: "1px",
+        borderWidth: 1,
         borderColor: "#CACACA",
-        borderRadius: "10px", 
+        borderRadius: 10, 
         height: "52px", 
         width: "239px",
 
@@ -48,12 +48,11 @@ export default StyleSheet.create({
         shadowRadius: 4,
         elevation: 7,
 
-        placeholderTextColor: "#B0B0B0",
     },
     button: {
         justifyContent: 'center',
         backgroundColor:"#FFDB47",
-        borderRadius:"20px",
+        borderRadius: 20,
         height: "47px", 
         width: "239px",
 
@@ -70,54 +69,54 @@ export default StyleSheet.create({
     h1Text: {
         fontFamily: 'Lexend',
         fontStyle: 'normal',
-        fontWeight: 700,
-        fontSize: "40px",
-        lineHeight: "50px",
+        fontWeight: "700",
+        fontSize: 40,
+        lineHeight: 50,
 
         color: "#000000",
     },
     h2Text: {
         fontFamily: 'Lexend',
         fontStyle: 'normal',
-        fontWeight: 700,
-        fontSize: "30px",
-        lineHeight: "38px",
+        fontWeight: "700",
+        fontSize: 30,
+        lineHeight: 38,
 
         color: "#000000",
     },
     h3Text: {
         fontFamily: 'Lexend',
         fontStyle: 'normal',
-        fontWeight: 700,
-        fontSize: "20px",
-        lineHeight: "25px",
+        fontWeight: "700",
+        fontSize: 20,
+        lineHeight: 25,
 
         color: "#000000",
     },
     subtitleText: {
         fontFamily: 'Avenir',
         fontStyle: 'normal',
-        fontWeight: 400,
-        fontSize: "20px",
-        lineHeight: "27px",
+        fontWeight: "400",
+        fontSize: 20,
+        lineHeight: 27,
 
         color: "#000000"
     },
     boldBodyText: {
         fontFamily: 'Avenir',
         fontStyle: 'normal',
-        fontWeight: 400,
-        fontSize: "18px",
-        lineHeight: "25px",
+        fontWeight: "400",
+        fontSize: 18,
+        lineHeight: 25,
         /* identical to box height */
         color: "#000000",
     },
     bodyText: {
         fontFamily: 'Avenir',
         fontStyle: 'normal',
-        fontWeight: 400,
-        fontSize: "20px",
-        lineHeight: "26px",
+        fontWeight: "400",
+        fontSize: 20,
+        lineHeight: 26,
         /* identical to box height, or 130% */
 
         color: "#000000",
@@ -125,20 +124,20 @@ export default StyleSheet.create({
     smallText: {
         fontFamily: 'Avenir',
         fontStyle: 'normal',
-        fontWeight: 500,
-        fontSize: "16px",
-        lineHeight: "22px",
+        fontWeight: "500",
+        fontSize: 16,
+        lineHeight: 22,
         color: "#000000",
     },
     buttonText: {
         fontFamily: 'Lexend',
         fontStyle: 'normal',
-        fontWeight: 700,
-        fontSize: "16px",
-        lineHeight: "20px",
+        fontWeight: "700",
+        fontSize: 16,
+        lineHeight: 20,
         /* identical to box height */
 
-        letterSpacing: "0.03em",
+        letterSpacing: 0.03,
         textTransform: 'capitalize',
 
         color: "#000000",

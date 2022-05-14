@@ -6,14 +6,14 @@ export default StyleSheet.create({
         height: '7vw',
         width: '70vw',
         flexDirection: 'row',
-        borderRadius: '10px',
+        borderRadius: 10,
         overflow: 'hidden'
     },
     progressLine: {
         flex: 1,
         width: '10px',
         backgroundColor: '#DCDCDC',
-        borderRightWidth: '5px',
+        borderRightWidth: 5,
         borderRightColor: '#808080',
         borderStyle: 'solid'
     }

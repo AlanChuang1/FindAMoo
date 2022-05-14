@@ -5,9 +5,10 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        borderRadius: '10px',
+        borderRadius: 10,
         overflow: 'hidden',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF'
     },
     topBar: {
         flexDirection: 'row',
@@ -24,7 +25,7 @@ export default StyleSheet.create({
         flex: 1,
         width: '10px',
         backgroundColor: '#DCDCDC',
-        borderRightWidth: '5px',
+        borderRightWidth: 5,
         borderRightColor: '#808080',
         borderStyle: 'solid'
     }
