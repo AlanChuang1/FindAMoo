@@ -7,7 +7,7 @@ import { useFonts } from 'expo-font';
 
 import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
-import TutorialWelcome from './components/Tutorial/TutorialWelcome.js';
+import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
 
 const Stack = createNativeStackNavigator();
 

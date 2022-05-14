@@ -11,22 +11,24 @@ export default StyleSheet.create({
         height:"100vh",
         width:"100vw",
     },
-    cowPinPointImg: {
-        //flex: 1,
-        width: '51vw',
-        height: '32vh',
+    inner_container: {
+        alignItems: 'center',
+        height:"65vh", 
+        width:"84vw", 
+        marginTop:"13vh",
     },
-    imgContainer: {
+    image: {
+        height:"27vh", 
+        width:"56vw",
         //flex: 1,
-        //flexDirection: 'column',
-        marginTop: "17vh"
-    }, 
-    textBox: {
-        textAlign: 'center', 
-        //flex: 1, 
-        //flexDirection: 'column', 
-        height: '10vh',
-        width: '80vw',
-        marginTop: '3vh',
+    },
+    text_container: {
+        //flex: 1,
+        marginTop: '50px',
+        alignItems: 'center', 
+    },
+    text: {
+        marginTop: '30px',
+        textAlign:'center', 
     }
 });
