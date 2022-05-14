@@ -2,8 +2,8 @@ import { StyleSheet, Text, TextInput, Alert, View, SafeAreaView, Button, useWind
 import axios from 'axios';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-//import {useFonts, Lexend_700Bold, Lexend_500Medium, Lexend_400Regular} from '@expo-google-fonts/lexend';
-import { useFonts } from 'expo-fonts'
+//import { useGoogleFonts, Lexend_700Bold, Lexend_500Medium, Lexend_400Regular } from '@expo-google-fonts/lexend';
+import { useFonts } from 'expo-font';
 
 import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
@@ -13,7 +13,12 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
 	let [fontsLoaded] = useFonts({
-		
+		"AvenirMedium": require("./assets/Fonts/Avenir-Medium-09.ttf"),
+		"AvenirHeavy": require("./assets/Fonts/Avenir-Heavy-05.ttf"),
+
+		"LexendBold": require("./assets/Fonts/Lexend-Bold.ttf"), 
+		"LexendMedium": require("./assets/Fonts/Lexend-Medium.ttf"),
+		"LexendRegular": require("./assets/Fonts/Lexend-Regular.ttf"), 
 	});
 	return (
 		<NavigationContainer>
