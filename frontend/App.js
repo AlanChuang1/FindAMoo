@@ -11,26 +11,26 @@ const Stack = createNativeStackNavigator();
 const App = () => {
 	return (
 		<NavigationContainer>
-		<Stack.Navigator 
-		
-			screenOptions={{
-    			headerShown: true
-  			}} 
-		>	
-			<Stack.Screen
-				name="Profile"
-				component={Profile}
-			/>
+			<Stack.Navigator 
+			
+				screenOptions={{
+					headerShown: true
+				}} 
+			>	
+				<Stack.Screen
+					name="Profile"
+					component={Profile}
+				/>
 
-			<Stack.Screen 
-				name="Introduction"
-				component={CreateUserPage}
-			/>
-			<Stack.Screen
-				name="Login"
-				component={GoogleLogin}
-			/>
-		</Stack.Navigator>
+				<Stack.Screen 
+					name="Introduction"
+					component={CreateUserPage}
+				/>
+				<Stack.Screen
+					name="Login"
+					component={GoogleLogin}
+				/>
+			</Stack.Navigator>
 		</NavigationContainer>
 	);
 };
