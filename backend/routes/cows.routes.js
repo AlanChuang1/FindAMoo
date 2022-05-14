@@ -49,7 +49,7 @@ router.route("/put/:id").put((req, res) => {
         })
         .catch(err => res.status(400).json('Error: ' + err));
         return req, res; 
-});
+}));
 
 // PUT request
 router.route("/put/:id").put((req, res) => {
