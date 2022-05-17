@@ -19,11 +19,11 @@ export default StyleSheet.create({
         width:"72vw",
     },
     text_container: {
-        marginTop: '52px',
+        marginTop: '30px',
         alignItems: 'center', 
     },
     text: {
-        //marginTop: '30px',
+        marginTop: '30px',
         textAlign:'center', 
     }
 });
