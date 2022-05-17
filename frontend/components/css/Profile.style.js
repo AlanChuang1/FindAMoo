@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
         flexDirection: 'column',
         borderRadius: 10,
         overflow: 'hidden',
@@ -28,6 +27,18 @@ export default StyleSheet.create({
         borderRightWidth: 5,
         borderRightColor: '#808080',
         borderStyle: 'solid'
+    },
+    unlockedCows: {
+        height: '100px',
+        width: '70vw',
+        backgroundColor: 'red',
+        alignItems: 'center',
+        flexDirection: 'column',
+        margin: '10px'
+    },
+    lockImages: {
+        height: '50px',
+        width: '50px',
+        backgroundColor: "blue"
     }
-
 });
