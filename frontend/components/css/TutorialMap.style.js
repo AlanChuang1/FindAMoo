@@ -20,10 +20,8 @@ export default StyleSheet.create({
     image: {
         height:"27vh", 
         width:"56vw",
-        //flex: 1,
     },
     text_container: {
-        //flex: 1,
         marginTop: '50px',
         alignItems: 'center', 
     },
