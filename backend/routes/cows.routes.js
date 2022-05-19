@@ -74,57 +74,32 @@ function getRandomIntInclusive(min, max) {
         return layerID;
     }
 
-    // what location
-    async function main(){
-        /**
-         * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-         * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-         */
-        const uri = "mongodb+srv://<username>:<password>@mongodb+srv://admin_user:<password>@cluster0.ynovo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/test?retryWrites=true&w=majority";
-     
-    
-        const client = new MongoClient(uri);
-     
-        try {
-            // Connect to the MongoDB cluster
-            await client.connect();
-     
-            // Make the appropriate DB calls
-            await  listDatabases(client);
-     
-        } catch (e) {
-            console.error(e);
-        } finally {
-            await client.close();
-        }
-    }
+// // POST request (create)
+// router.route('/add_cow').post((req, res) => { 
+//     const detailsObj = getDetailsFromRequest(req);
+//     const newCow = new Cow(detailsObj);
 
-// POST request (create)
-router.route('/add_cow').post((req, res) => { 
-    const detailsObj = getDetailsFromRequest(req);
-    const newCow = new Cow(detailsObj);
+//     newCow.save()
+//         .then(() => res.json(newCow))
+//         .catch(err => res.status(400).json('Error: ' + err));
+//     return req, res;
 
-    newCow.save()
-        .then(() => res.json(newCow))
-        .catch(err => res.status(400).json('Error: ' + err));
-    return req, res;
+//     const name = req.body.name;
+//     return {name};
+// },
 
-    const name = req.body.name;
-    return {name};
-},
-
-router.route("/put/:id").put((req, res) => {
-    Cow.findById(req.params.id)
-        .then(cow => {
-            const detailsObj = getDetailsFromRequest(req); 
-            cow.overwrite(detailsObj); 
-            cow.save()
-            .then(() => res.json(cow))
-            .catch(err => res.status(400).json('Error: ' + err));
-        })
-        .catch(err => res.status(400).json('Error: ' + err));
-        return req, res; 
-}));
+// router.route("/put/:id").put((req, res) => {
+//     Cow.findById(req.params.id)
+//         .then(cow => {
+//             const detailsObj = getDetailsFromRequest(req); 
+//             cow.overwrite(detailsObj); 
+//             cow.save()
+//             .then(() => res.json(cow))
+//             .catch(err => res.status(400).json('Error: ' + err));
+//         })
+//         .catch(err => res.status(400).json('Error: ' + err));
+//         return req, res; 
+// }));
 
 // PUT request
 router.route("/put/:id").put((req, res) => {
