@@ -51,10 +51,11 @@ export default StyleSheet.create({
     },
     button: {
         justifyContent: 'center',
+        textAlign:'center', 
         backgroundColor:"#FFDB47",
         borderRadius: 20,
-        height: "47px", 
-        width: "239px",
+        height: "6vh", 
+        width: "61vw",
 
         shadowColor: "#000",
         shadowOffset: {
