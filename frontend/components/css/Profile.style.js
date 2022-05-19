@@ -5,9 +5,7 @@ export default StyleSheet.create({
     container: {
         flexDirection: 'column',
         borderRadius: 10,
-        overflow: 'hidden',
-        alignItems: 'center',
-        backgroundColor: '#FFFFFF'
+        backgroundColor: 'red'
     },
     topBar: {
         flexDirection: 'row',
@@ -17,28 +15,36 @@ export default StyleSheet.create({
         backgroundColor: 'red'
     },
     gearSetting: {
-        height: '30px',
-        width: '30px'
+        height: 30,
+        width: 30
     },
     progressLine: {
         flex: 1,
-        width: '10px',
+        width: 10,
         backgroundColor: '#DCDCDC',
         borderRightWidth: 5,
         borderRightColor: '#808080',
         borderStyle: 'solid'
     },
     unlockedCows: {
-        height: '100px',
-        width: '70vw',
-        backgroundColor: 'red',
+        width: 70,
+        backgroundColor: 'blue',
         alignItems: 'center',
         flexDirection: 'column',
-        margin: '10px'
+        margin: 10
     },
     lockImages: {
-        height: '50px',
-        width: '50px',
+        height: 50,
+        width: 50,
         backgroundColor: "blue"
+    },
+    descriptionText: { 
+        backgroundColor: "yellow",
+        width: '50%'
+        
+    },
+    levelContentContainer: {
+        alignItems: 'center'
     }
+
 });
