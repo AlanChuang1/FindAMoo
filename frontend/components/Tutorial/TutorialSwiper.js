@@ -52,14 +52,12 @@ const TutorialSwiper = () => {
 			renderItem={_renderItem} 
 			data={slides} 
 			onDone={_onDone}
-///*
+/*
 			renderPagination={
 				(activeIndex) => {
 					return (
 						<View style={styles.paginationContainer}>
-							
-							<ButtonContainer/>
-
+							<ButtonContainer isLastSlide={activeIndex === slides.length}/>
 							<SafeAreaView>
 								<View style={styles.paginationDots}>
 								{slides.length > 1 &&
@@ -81,16 +79,26 @@ const TutorialSwiper = () => {
 					);
 			    }
 			}
-//*/
+*/
+/*		
+			showPrevButton={true}
+			renderPrevButton={() => {
+				return (
+					<Text style={[defaultStyles.buttonText]}>Prev</Text>
+				)
+			}}
+*/
 /*
 			renderNextButton={() => {
 				return (
-					<Text style={[styles.buttonText, defaultStyles.buttonText]}>Next</Text>
+					<Text style={[defaultStyles.buttonText]}>Next</Text>
 				)
 			}}
+*/
+/*
 			renderDoneButton={() => {
 				return(
-					<Text style={defaultStyles.buttonText}>Get started</Text>
+					<Text style={[defaultStyles.buttonText]}>Get started</Text>
 				)
 			}}
 */
