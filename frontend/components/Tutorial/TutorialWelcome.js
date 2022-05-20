@@ -7,9 +7,8 @@ import CowPinPoint from '../images/CowPinPoint.svg';
 const TutorialWelcome = () => {
     return (
 		<View style={styles.container}>
-            <View style={styles.imgContainer}>
-				<Image source={CowPinPoint} style={styles.cowPinPointImg}></Image>
-			</View>
+			<CowPinPoint style={styles.cowPinPointImg}></CowPinPoint>
+            {/*<Image source={CowPinPoint} style={styles.cowPinPointImg}></Image>*/}
 			<Text style={[defaultStyles.h2Text, styles.textBox]}>
 				Welcome, JOE to FindAMoo!
 			</Text>

@@ -14,14 +14,26 @@ import TCow1 from './TutorialCow1';
 import TCow2 from './TutorialCow2'; 
 
 const slides = [
-	Welcome, 
-	TMap,
-	TCow1, 
-	TCow2,
+	{
+		key: 'one',
+		jsx: Welcome
+	}, 
+	{
+		key: 'two', 
+		jsx: TMap
+	},
+	{
+		key: 'three', 
+		jsx: TCow1
+	}, 
+	{
+		key: 'four',
+		jsx: TCow2
+	},
   ];
 
 const _renderItem = ({item}) => {
-    return item();
+    return item.jsx();
 }
 
 const TutorialSwiper = () => {

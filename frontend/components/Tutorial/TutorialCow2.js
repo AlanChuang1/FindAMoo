@@ -9,7 +9,8 @@ const TutorialCow2 = () => {
     return(
 		<View style={styles.container}>
 			<View style={styles.inner_container}>
-				<Image source={CowVar} style={styles.image}></Image>
+				<CowVar style={styles.image}></CowVar>
+				{/*<Image source={CowVar} style={styles.image}></Image>*/}
 				<View style={styles.text_container}>
 					<Text style={[defaultStyles.h2Text, styles.text]}>
                         Level up for more cow variations

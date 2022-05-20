@@ -9,7 +9,8 @@ const TutorialCow1 = () => {
     return(
 		<View style={styles.container}>
 			<View style={styles.inner_container}> 
-				<Image source={CowOrange} style={styles.image}></Image>
+				<CowOrange style={styles.image}></CowOrange>
+				{/*<Image source={CowOrange} style={styles.image}></Image>*/}
 				<View style={styles.text_container}>
 					<Text style={[defaultStyles.h2Text, styles.text]}>
                         Keep track of your herd in the barn
@@ -18,7 +19,6 @@ const TutorialCow1 = () => {
                         View all the cows you've collected and share your progress with friends
 					</Text>
 				</View>
-				
 			</View>
 		</View>
 	)
