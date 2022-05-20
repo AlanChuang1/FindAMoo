@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { Image, Text, View, TextInput, Pressable } from 'react-native';
+import { Image, Text, View, ScrollView, TextInput, Pressable } from 'react-native';
 import defaultStyles from '../css/DefaultFonts.style';
 import LevelBar from './LevelBar';
 import GearSetting from '../images/gear.svg';
@@ -25,13 +25,14 @@ export default function Profile() {
 			<View style={styles.unlockedCows}>
 				<Text>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
-				<Image source={Lock} style={styles.lockImages}/>	
+				{/* <Image source={Lock} style={styles.lockImages}/>	 */}
+				<Lock/>
 			</View>
 		);
 	}
 	const LevelDescription = () => {
 		return (
-			<View>
+			<View style={styles.descriptionText}>
 				<Text>Level System</Text>
 				<Text>Collect more cows to level up and unlock a new cow variation!</Text>
 			</View>
@@ -55,17 +56,17 @@ export default function Profile() {
 
 	React.useEffect(() => {
 		console.log("wroking");
-		document.title = "Hello";
 	});
 
 	return (
 
-		<View style={styles.container}>
+		<ScrollView style={styles.container}>
 			<View style={styles.topBar}>		
-				<Text>Profile</Text> 
-				<Image source={GearSetting} style={styles.gearSetting}/>
+				<Text style={[defaultStyles.h1Text]}>Profile</Text> 
+				{/* <Image source={GearSetting} style={styles.gearSetting}/> */}
+				<GearSetting style={styles.gearSetting}/>
 			</View> 
-			<View>
+			<View style={styles.levelContentContainer}>
 				<LevelBar/>
 				<UnlockedCows/>
 				<LevelDescription/>
@@ -74,8 +75,13 @@ export default function Profile() {
 				<UnlockedCows level="Level 3: Cowbell" required="10"/>
 				<UnlockedCows level="Level 4: Hat" required="20"/>
 				<UnlockedCows level="Level 5: Special Accessories" required="35"/>
+				
+				<UnlockedCows level="Level 5: Special Accessories" required="35"/>
+				<UnlockedCows level="Level 5: Special Accessories" required="35"/>
+				<UnlockedCows level="Level 5: Special Accessories" required="35"/>
 			</View>
-		</View>
+		
+		</ScrollView>
 	);
 }
 
