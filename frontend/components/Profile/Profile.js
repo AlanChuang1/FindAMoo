@@ -55,14 +55,14 @@ export default function Profile() {
 	}
 
 	React.useEffect(() => {
-		console.log("wroking");
+		console.log("working");
 	});
 
 	return (
 
 		<ScrollView style={styles.container}>
 			<View style={styles.topBar}>		
-				<Text style={[defaultStyles.h1Text]}>Profile</Text> 
+				<Text >Profile</Text> 
 				{/* <Image source={GearSetting} style={styles.gearSetting}/> */}
 				<GearSetting style={styles.gearSetting}/>
 			</View> 
