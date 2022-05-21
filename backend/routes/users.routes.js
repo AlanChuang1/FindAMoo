@@ -10,6 +10,7 @@ function getDetailsFromRequest(req) {
     const collectedIDs = req.body.collectedIDs;
     const favoriteID = req.body.favoriteID;
     const huntStreak = req.body.huntStreak;
+    const level = req.body.level;
 
     return {id, name, email, collectedIDs, favoriteID, huntStreak};
 }
@@ -36,6 +37,7 @@ router.route('/add_user').post((req, res) => {
     const collectedIDs = req.body.collectedIDs;
     const favoriteID = req.body.favoriteID;
     const huntStreak = req.body.huntStreak;
+    const level = req.body.level;
 
     const newUser = new User({
         id,
@@ -43,7 +45,8 @@ router.route('/add_user').post((req, res) => {
         email,
         collectedIDs,
         favoriteID,
-        huntStreak
+        huntStreak,
+        level
     });
 
     newUser.save()
