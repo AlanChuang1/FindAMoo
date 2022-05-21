@@ -10,7 +10,7 @@ const TutorialWelcome = () => {
 			<CowPinPoint style={styles.cowPinPointImg}></CowPinPoint>
             {/*<Image source={CowPinPoint} style={styles.cowPinPointImg}></Image>*/}
 			<Text style={[defaultStyles.h2Text, styles.textBox]}>
-				Welcome, JOE to FindAMoo!
+				Welcome, Jose to FindAMoo!
 			</Text>
 		</View>
 	);

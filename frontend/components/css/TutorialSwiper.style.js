@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 
 export default StyleSheet.create({
+/*
     paginationContainer: {
         position: 'absolute',
         bottom: 16,
@@ -25,7 +26,7 @@ export default StyleSheet.create({
         alignSelf:'center',
         justifyContent:'center',
     },
-/*
+
     button: {
         flex: 1,
         paddingVertical: 20,
@@ -33,10 +34,10 @@ export default StyleSheet.create({
         borderRadius: 24,
         backgroundColor: '#1cb278',
     },
+*/
     buttonText: {
-        color: 'white',
-        fontWeight: '600',
+        color: "#FFDB47",
         textAlign: 'center',
     },
-*/
+//*/
 })

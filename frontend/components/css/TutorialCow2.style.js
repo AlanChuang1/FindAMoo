@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        position:'absolute',
+        //position:'absolute',
         alignItems: 'center', 
         backgroundColor: 'white',
         height:"100%",
@@ -12,14 +12,16 @@ export default StyleSheet.create({
     inner_container: {
         alignItems: 'center',
         height:"62%", 
-        width:"70%", 
-        marginTop:'5%',
+        width:"70%", //70% 
+        marginTop:'16%',
     },
     image: {
+        flex: 1,
         //height: 309, 
-        height: "60%", 
+        //height: "60%", 
         //width: 215,
-        width: "79%",
+        //width: "79%",
+        width:"100%", 
     },
     text_container: {
         marginTop: '10%',

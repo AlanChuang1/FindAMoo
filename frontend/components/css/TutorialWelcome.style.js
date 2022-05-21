@@ -4,19 +4,21 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         //flex: 1,
-        position:'absolute',
+        //position:'absolute',
         width:'100%', 
         height:'100%',
         alignItems: 'center', 
         backgroundColor: 'white',
+        flexDirection: 'column',
     },
     cowPinPointImg: {
-        //flex: 2,
+        flex: 1, 
         marginTop: '45%',
-        width: '51%', //202,
-        height: '32%', //274,
-        //width: '51vw',
-        //height: '32vh',
+        width: '100%',
+        //width: '51%', //202,
+        //height: '32%', //274,
+        //width: 202,
+        //height: 274,
     },
     textBox: {
         flex: 1,

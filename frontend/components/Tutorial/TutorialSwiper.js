@@ -37,9 +37,7 @@ const _renderItem = ({item}) => {
 }
 
 const TutorialSwiper = () => {
-    let myUser = "JOE"
 	const [showRealApp, setShowRealApp] = React.useState(false); 
-	const [isLastSlide, setIsLastSlide] = React.useState(false); 
 
 	const _onDone = () => {
 		// User finished the introduction. Show real app through
@@ -48,6 +46,8 @@ const TutorialSwiper = () => {
 		console.log("Done button!"); 
 	}
 
+	/* NOT USED FOR NOW
+	const [isLastSlide, setIsLastSlide] = React.useState(false); 
 	function ButtonContainer(props) {
 		return (
 			<View style={[styles.buttonContainer]}>
@@ -58,7 +58,8 @@ const TutorialSwiper = () => {
 			</View>
 		)
 	}
-	
+	*/
+
 	return (
 		<AppIntroSlider 
 			renderItem={_renderItem} 
@@ -92,28 +93,28 @@ const TutorialSwiper = () => {
 			    }
 			}
 */
-/*		
+///*		
 			showPrevButton={true}
 			renderPrevButton={() => {
 				return (
-					<Text style={[defaultStyles.buttonText]}>Prev</Text>
+					<Text style={[defaultStyles.buttonText, styles.buttonText]}>Prev</Text>
 				)
 			}}
-*/
-/*
+//*/
+///*
 			renderNextButton={() => {
 				return (
-					<Text style={[defaultStyles.buttonText]}>Next</Text>
+					<Text style={[defaultStyles.buttonText, styles.buttonText]}>Next</Text>
 				)
 			}}
-*/
-/*
+//*/
+///*
 			renderDoneButton={() => {
 				return(
-					<Text style={[defaultStyles.buttonText]}>Get started</Text>
+					<Text style={[defaultStyles.buttonText, styles.buttonText]}>Get started</Text>
 				)
 			}}
-*/
+//*/
 		/>
 	);
 }

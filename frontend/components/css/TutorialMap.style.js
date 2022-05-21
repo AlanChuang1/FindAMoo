@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        position:'absolute',
+        //position:'absolute',
         alignItems: 'center', 
         backgroundColor: 'white',
         height:"100%",
