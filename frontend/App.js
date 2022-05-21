@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
+import CreateCowCaughtPage from './components/cowCaught.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ const App = () => {
 			screenOptions={{
     			headerShown: true
   			}} 
+/*
 		>
 			<Stack.Screen 
 				name="Introduction"
@@ -22,6 +24,12 @@ const App = () => {
 			<Stack.Screen
 				name="Login"
 				component={GoogleLogin}
+			/>
+*/
+>
+			<Stack.Screen
+				name=" "
+				component={CreateCowCaughtPage}
 			/>
 		</Stack.Navigator>
 		</NavigationContainer>
