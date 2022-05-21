@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const usersSchema = new Schema(
     {
+      id: { type: String, required: true, unmodifiable: true },
       name: { type: [String], required: true },
       email: { type: String, required: true },
       collectedIDs: { type: [String], required: true },
