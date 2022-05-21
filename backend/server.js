@@ -4,7 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv'; 
 import usersRouter from './routes/users.routes.js';
 import cowsRouter from './routes/cows.routes.js';
-import authRouter from './routes/auth.js';
+import locationsRouter from './routes/locations.routes.js';
 import bodyParser from 'body-parser'; 
 
 
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 //routes
 app.use('/users', usersRouter)
 app.use('/cows', cowsRouter)
-app.use('/auth', authRouter)
+app.use('/locations', locationsRouter)
 
 // Setting up port and server 
 app.listen(port, () => {
