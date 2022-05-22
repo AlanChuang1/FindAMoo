@@ -1,22 +1,30 @@
-import express from 'express';
-import mongoose from 'mongoose'; 
-import cors from 'cors';
-import dotenv from 'dotenv'; 
-import usersRouter from './routes/users.routes.js';
-import cowsRouter from './routes/cows.routes.js';
-import locationsRouter from './routes/locations.routes.js';
-import bodyParser from 'body-parser'; 
+const serverless = require('serverless-http'); 
+const express = require('express');
+const mongoose = require('mongoose');
 
-
+require('dotenv').config();
 
 const app = express();
-const port = 5000;
+const port = 5001;
 
-dotenv.config(); //loads variables from env
-app.use(cors()); //https://daveceddia.com/access-control-allow-origin-cors-errors-in-react-express/
-
-
+var bodyParser = require('body-parser');
 app.use(bodyParser.json()); 
+
+const cors = require('cors');    
+const corsOpts = {
+    origin: '*',
+    credentials: false,
+    methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
+    allowedHeaders: ['Content-Type'],
+    exposedHeaders: ['Content-Type']
+};
+
+app.use(cors(corsOpts));
+require('dotenv').config();
+
+const usersRouter = require('./routes/users.routes.js'); 
+const cowsRouter = require('./routes/cows.routes.js'); 
+const locationsRouter = require('./routes/locations.routes.js'); 
 
 //routes
 app.use('/users', usersRouter)

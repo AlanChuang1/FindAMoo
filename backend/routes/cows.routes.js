@@ -1,7 +1,5 @@
-import express from 'express';
-import Cow from '../models/cows.model.js'; 
-
-const router = express.Router();
+const router = require('express').Router();
+let Cow = require('../models/cows.model');
 
 function getDetailsFromRequest(req) {
 
@@ -115,4 +113,4 @@ router.route("/put/:id").put((req, res) => {
         return req, res; 
 });
 
-export default router;
+module.exports = router; 

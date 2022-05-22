@@ -1,7 +1,5 @@
-import express from 'express';
-import Location from '../models/locations.model.js'; 
-
-const router = express.Router();
+const router = require('express').Router();
+let Location = require('../models/cows.model');
 
 function getDetailsFromRequest(req) {
     const location = req.body.location;
@@ -23,4 +21,4 @@ router.route('/get_random/:id').get((req, res) => {
      .catch(err => res.status(400).json("Error: "+ err))
   })
 
-  export default router;
+module.exports = router; 

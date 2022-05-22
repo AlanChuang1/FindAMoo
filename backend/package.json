@@ -1,5 +1,9 @@
 {
-    "type": "module",
+    "name": "backend",
+    "version": "1.0.0",
+    "private": true,
+    "main": "server.js",
+    "author": "CodeLab UC Davis",
     "dependencies": {
         "connect-mongo": "^3.2.0",
         "cors": "^2.8.5",
@@ -12,6 +16,7 @@
         "nodeman": "^1.1.2",
         "passport": "^0.5.2",
         "passport-google-oauth2": "^0.2.0",
-        "passport-google-oauth20": "^2.0.0"
+        "passport-google-oauth20": "^2.0.0", 
+        "serverless-http": "^2.7.0"
     }
 }

@@ -1,7 +1,5 @@
-import express from 'express';
-import User from '../models/users.model.js'; 
-
-const router = express.Router();
+const router = require('express').Router();
+let Users = require('../models/cows.model');
 
 function getDetailsFromRequest(req) {
     const id = req.body.id;
@@ -69,4 +67,4 @@ router.route("/put/:id").put((req, res) => {
         return req, res; 
 });
 
-export default router;
+module.exports = router; 
