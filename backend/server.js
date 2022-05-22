@@ -37,4 +37,4 @@ connection.once("open", () => {
     console.log("MongoDB database connection established successfully.");
 });
 
-export default port;
+module.exports.server = serverless(app); 
