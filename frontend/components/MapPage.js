@@ -2,7 +2,7 @@ import StatusBar from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps'; 
-import MapStyle from './modules/maps.styling.js'; 
+import MapStyle from './css/MapPage.style.js'; 
 
 export default function MapPage() {
   return (
