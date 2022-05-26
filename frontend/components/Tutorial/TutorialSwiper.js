@@ -40,8 +40,6 @@ const TutorialSwiper = () => {
 	const [showRealApp, setShowRealApp] = React.useState(false); 
 
 	const _onDone = () => {
-		// User finished the introduction. Show real app through
-		// navigation or simply by controlling state
 		setShowRealApp(true);
 		console.log("Done button!"); 
 	}
@@ -92,29 +90,23 @@ const TutorialSwiper = () => {
 					);
 			    }
 			}
-*/
-///*		
+*/		
 			showPrevButton={true}
 			renderPrevButton={() => {
 				return (
 					<Text style={[defaultStyles.buttonText, styles.buttonText]}>Prev</Text>
 				)
 			}}
-//*/
-///*
 			renderNextButton={() => {
 				return (
 					<Text style={[defaultStyles.buttonText, styles.buttonText]}>Next</Text>
 				)
 			}}
-//*/
-///*
 			renderDoneButton={() => {
 				return(
 					<Text style={[defaultStyles.buttonText, styles.buttonText]}>Get started</Text>
 				)
 			}}
-//*/
 		/>
 	);
 }

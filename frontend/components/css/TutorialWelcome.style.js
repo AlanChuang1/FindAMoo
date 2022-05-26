@@ -12,9 +12,9 @@ export default StyleSheet.create({
         flexDirection: 'column',
     },
     cowPinPointImg: {
-        flex: 1, 
+        //flex: 1, 
         marginTop: '45%',
-        width: '100%',
+        //width: '100%',
         //width: '51%', //202,
         //height: '32%', //274,
         //width: 202,

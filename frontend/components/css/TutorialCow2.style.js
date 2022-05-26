@@ -16,12 +16,12 @@ export default StyleSheet.create({
         marginTop:'16%',
     },
     image: {
-        flex: 1,
+        //flex: 1,
         //height: 309, 
         //height: "60%", 
         //width: 215,
         //width: "79%",
-        width:"100%", 
+        //width:"100%", 
     },
     text_container: {
         marginTop: '10%',

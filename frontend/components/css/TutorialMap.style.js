@@ -17,9 +17,9 @@ export default StyleSheet.create({
     },
     image: {
         //height: 231, // 42%
-        height: '42%',
+        //height: '42%',
         //width: 219, // 67%
-        width: '67%', 
+        //width: '67%', 
     },
     text_container: {
         marginTop: '10%',

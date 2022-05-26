@@ -18,9 +18,9 @@ export default StyleSheet.create({
     image: {
         //height: 236,
         //height: , 
-        flex: 1,
+        //flex: 1,
         //width: 282,
-        width: '100%', 
+        //width: '100%', 
     },
     text_container: {
         flex: 1,
