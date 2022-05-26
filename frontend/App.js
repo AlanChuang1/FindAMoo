@@ -8,6 +8,7 @@ import { useFonts } from 'expo-font';
 import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
 import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
+import MapPage from './components/MapPage.js'
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,10 @@ const App = () => {
 					headerShown: false
 				}} 
 			>
+				<Stack.Screen
+					name="MapPage"
+					component={MapPage}
+				/>
 				<Stack.Screen
 					name="TutorialWelcome"
 					component={TutorialWelcome}
