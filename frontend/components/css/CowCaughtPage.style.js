@@ -7,7 +7,9 @@ export default StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        marginTop: "0%",
+        marginBottom: "100%"
     },
     barnButton: {
         marginTop: 120,
@@ -20,7 +22,9 @@ export default StyleSheet.create({
         width: 100,
         height: 40,
         backgroundColor: 'grey',
-        borderRadius: 8
+        borderRadius: 8,
+        position: 'absolute',
+        bottom: 0
     },
 
     shareButton: {
@@ -34,7 +38,9 @@ export default StyleSheet.create({
         width: 100,
         height: 40,
         backgroundColor: '#FFDB47', 
-        borderRadius: 8
+        borderRadius: 8,
+        flex: 1
+       
     },
     inputTextBox: {
         backgroundColor: "#F9F9F9",
@@ -54,5 +60,13 @@ export default StyleSheet.create({
         height: 100,
         textAlign: "center"
 
+    },
+
+    CowImage : {
+        resizeMode: 'cover', 
+        width: '30%', 
+        height: '30%',
+        backgroundColor: "blue" 
+    
     }
 });

@@ -1,23 +1,57 @@
-import * as React from 'react';
-import { Text, View, TextInput, Pressable, ScrollView } from 'react-native';
+//import * as React from 'react';
+import { Text, View, TextInput, Pressable, ScrollView, Image } from 'react-native';
 import styles from './css/CowCaughtPage.style';
 import defaultStyles from './css/DefaultFonts.style';
+import axios from 'axios';
+import { getUserData } from '../Utils';
+import { setStatusBarStyle } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
+
+
+const server = axios.create({
+	baseURL: "http://localhost:5000",
+	timeout: 1000
+})
+
+
+function getDailyCow(){   //async
+	let UserID = getUserData('credentials')
+	let user = server.get('/get_user/' + UserID)
+	//let user_lvl = user.level
+	let dailyCow = server.get("/get_daily/" + user.level)
+	let url = "https://findamoo.s3.us-west-1.amazonaws.com/" + dailyCow + ".png";
+	return url;
+
+}
+
+
 
 export default function CreateCowCaughtPage() {
-	const [text, onChangeText] = React.useState("");
+	const [text, onChangeText] = useState("");
+	const [url, geturl] = useState("https://findamoo.s3.us-west-1.amazonaws.com/cow11105.png");
+	
+	useEffect(() => {
+		geturl(getDailyCow());
+		console.log(getDailyCow());
+	  });
+
 	return (
 		<ScrollView>
 		<View style={styles.container}>
 			<Text style={[styles.titleText, defaultStyles.h1Text, styles.CowCaught]}>Cow Caught!</Text>
 
-
+			<Image 
+			style={{width: 90, height: 90}}
+			source={{uri: url}} 
+			/>
 
 			<Text style={[styles.titleText, defaultStyles.h2Text]}></Text>
 			<TextInput
 				style={styles.inputTextBox}
 				onChangeText={onChangeText}
 				value={text}
-				placeholder="Cow #n"   //how to change n to follow number of cows collected
+				placeholder="new cow"   //how to change n to follow number of cows collected
+				placeholderTextColor='#CACACA'
 			/>
 		
 			<Pressable
