@@ -14,14 +14,15 @@ const server = axios.create({
 })
 
 
-function getDailyCow(){   //async
+async function getDailyCow(){   //async
 	let UserID = checkCrendentials()
 	console.log("this is user ID: ")
 	console.log(UserID);
-	let user = server.get('/get_user/' + UserID)
+	let user = await server.get('/users/get_user/' + UserID)
 	//let user_lvl = user.level
-	let dailyCow = server.get("/get_daily/" + user.level)
+	let dailyCow = await server.get("/cows/get_daily/" + user.level)
 	let url = "https://findamoo.s3.us-west-1.amazonaws.com/" + dailyCow + ".png";
+	console.log(url);
 	return url;
 
 }
@@ -32,10 +33,10 @@ export default function CreateCowCaughtPage() {
 	const [text, onChangeText] = useState("");
 	const [url, geturl] = useState("https://findamoo.s3.us-west-1.amazonaws.com/cow11105.png");
 	
-	useEffect(() => {
-		geturl(getDailyCow());
-	  });
-
+	// useEffect(() => {
+	// 	geturl(getDailyCow());
+	// });
+	getDailyCow();
 	return (
 		<ScrollView>
 		<View style={styles.container}>

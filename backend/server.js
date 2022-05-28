@@ -10,7 +10,7 @@ import bodyParser from 'body-parser';
 
 
 const app = express();
-const port = 5001;
+const port = 5000;
 
 dotenv.config(); //loads variables from env
 app.use(cors()); //https://daveceddia.com/access-control-allow-origin-cors-errors-in-react-express/
