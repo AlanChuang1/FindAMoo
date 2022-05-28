@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, Alert, View, SafeAreaView, Button, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, Image, TextInput, Alert, View, SafeAreaView, Button, useWindowDimensions } from 'react-native';
 import axios from 'axios';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -8,7 +8,7 @@ import { useFonts } from 'expo-font';
 import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
 import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
-import MapPage from './components/MapPage.js'
+import MainScreen from './components/MainScreen.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,15 +28,6 @@ const App = () => {
 					headerShown: false
 				}} 
 			>
-				<Stack.Screen
-					name="MapPage"
-					component={MapPage}
-				/>
-				<Stack.Screen
-					name="TutorialWelcome"
-					component={TutorialWelcome}
-				/>
-
 				<Stack.Screen 
 					name="Introduction"
 					component={CreateUserPage}
@@ -46,7 +37,16 @@ const App = () => {
 					name="Login"
 					component={GoogleLogin}
 				/>
-				
+
+				<Stack.Screen
+					name="TutorialWelcome"
+					component={TutorialWelcome}
+				/>
+
+				<Stack.Screen
+					name="MainScreen"
+					component={MainScreen}
+				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
