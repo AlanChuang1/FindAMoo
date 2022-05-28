@@ -10,6 +10,7 @@ import CreateUserPage from "./components/CreateUserPage.js";
 import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
 import MainScreen from './components/MainScreen.js';
 import Profile from "./components/Profile/Profile.js";
+import CreateCowCaughtPage from './components/cowCaught.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +49,10 @@ const App = () => {
 					component={TutorialWelcome}
 				/>
 
+				<Stack.Screen
+					name="CreateCowCaughtPages"
+					component={CreateCowCaughtPage}
+				/>	
 				
 			</Stack.Navigator>
 		</NavigationContainer>

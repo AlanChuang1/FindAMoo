@@ -12,7 +12,7 @@ export default StyleSheet.create({
         marginTop: 0,
         justifyContent: 'center',
         textAlign: 'center',
-        fontFamily: 'lexend',
+        //fontFamily: 'lexend',
         fontWeight: 'bold',
         fontSize: 16,
         letterSpacing: 3,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
         marginTop: 0,
         justifyContent: 'center',
         textAlign: 'center',
-        fontFamily: 'lexend',
+        //fontFamily: 'lexend',
         fontWeight: 'bold',
         fontSize: 16,
         letterSpacing: 3,
@@ -37,7 +37,7 @@ export default StyleSheet.create({
     titleText: {
         marginTop: 30,
         marginBottom: 30,
-        fontFamily: 'lexend',
+        //fontFamily: 'lexend',
         fontWeight: 'bold',
         fontSize: 40
     },

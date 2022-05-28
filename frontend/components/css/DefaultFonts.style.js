@@ -68,7 +68,7 @@ export default StyleSheet.create({
     },
     
     h1Text: {
-        fontFamily: 'Lexend',
+        //fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 40,
@@ -77,7 +77,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     h2Text: {
-        fontFamily: 'Lexend',
+        //fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 30,
@@ -86,7 +86,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     h3Text: {
-        fontFamily: 'Lexend',
+        //fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 20,

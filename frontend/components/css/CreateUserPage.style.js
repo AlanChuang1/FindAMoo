@@ -13,7 +13,7 @@ export default StyleSheet.create({
         marginTop: 120,
         justifyContent: 'center',
         textAlign: 'center',
-        fontFamily: 'lexend',
+        //fontFamily: 'lexend',
         fontWeight: 'bold',
         fontSize: 16,
         letterSpacing: 3,
