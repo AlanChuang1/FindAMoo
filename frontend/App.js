@@ -9,6 +9,7 @@ import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
 import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
 import MainScreen from './components/MainScreen.js';
+import Profile from "./components/Profile/Profile.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +38,6 @@ const App = () => {
 					name="Introduction"
 					component={CreateUserPage}
 				/>
-
 				<Stack.Screen
 					name="Login"
 					component={GoogleLogin}
