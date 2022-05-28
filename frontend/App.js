@@ -28,6 +28,11 @@ const App = () => {
 					headerShown: false
 				}} 
 			>
+				<Stack.Screen
+					name="MainScreen"
+					component={MainScreen}
+				/>
+				
 				<Stack.Screen 
 					name="Introduction"
 					component={CreateUserPage}
@@ -43,10 +48,7 @@ const App = () => {
 					component={TutorialWelcome}
 				/>
 
-				<Stack.Screen
-					name="MainScreen"
-					component={MainScreen}
-				/>
+				
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
