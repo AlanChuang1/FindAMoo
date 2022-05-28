@@ -11,6 +11,7 @@ import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
 import MainScreen from './components/MainScreen.js';
 import Profile from "./components/Profile/Profile.js";
 import CreateCowCaughtPage from './components/cowCaught.js';
+import BarnPage from './components/BarnPage.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,18 @@ const App = () => {
 				<Stack.Screen
 					name="MainScreen"
 					component={MainScreen}
+					name="BarnPage"
+					component={BarnPage}
+				/>
+
+				<Stack.Screen					
+					name="BarnPage"
+					component={BarnPage}
+				/>
+
+				<Stack.Screen
+					name="TutorialWelcome"
+					component={TutorialWelcome}
 				/>
 				
 				<Stack.Screen 
