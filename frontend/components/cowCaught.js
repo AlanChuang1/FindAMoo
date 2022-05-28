@@ -3,7 +3,7 @@ import { Text, View, TextInput, Pressable, ScrollView, Image } from 'react-nativ
 import styles from './css/CowCaughtPage.style';
 import defaultStyles from './css/DefaultFonts.style';
 import axios from 'axios';
-import { getUserData } from '../Utils';
+import { checkCrendentials, getUserData } from '../Utils';
 import { setStatusBarStyle } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 
@@ -15,7 +15,9 @@ const server = axios.create({
 
 
 function getDailyCow(){   //async
-	let UserID = getUserData('credentials')
+	let UserID = checkCrendentials()
+	console.log("this is user ID: ")
+	console.log(UserID);
 	let user = server.get('/get_user/' + UserID)
 	//let user_lvl = user.level
 	let dailyCow = server.get("/get_daily/" + user.level)
@@ -32,7 +34,6 @@ export default function CreateCowCaughtPage() {
 	
 	useEffect(() => {
 		geturl(getDailyCow());
-		console.log(getDailyCow());
 	  });
 
 	return (
@@ -80,4 +81,3 @@ export default function CreateCowCaughtPage() {
 		</ScrollView>
 	);
 }
-

@@ -66,7 +66,7 @@ export default function GoogleLogin({ navigation }) {
 		fetchProfile()
 			.then( (response) => {
 				if (response)
-					navigation.navigate('Introduction');
+					navigation.navigate('CreateCowCaughtPages');
 			})
 			.catch( (error) => {
 				console.log("Error failed to get profile: " + error);

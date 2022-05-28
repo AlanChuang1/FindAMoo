@@ -15,20 +15,21 @@ const App = () => {
 			screenOptions={{
     			headerShown: true
   			}} 
-/*
+
 		>
-			<Stack.Screen 
+
+			{/* <Stack.Screen 
 				name="Introduction"
 				component={CreateUserPage}
-			/>
+			/> */}
 			<Stack.Screen
 				name="Login"
 				component={GoogleLogin}
 			/>
-*/
->
+
+{/* > */}
 			<Stack.Screen
-				name=" "
+				name="CreateCowCaughtPages"
 				component={CreateCowCaughtPage}
 			/>
 		</Stack.Navigator>
