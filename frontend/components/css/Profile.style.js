@@ -12,9 +12,15 @@ export default StyleSheet.create({
         width: '100%',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        backgroundColor: 'red'
+        backgroundColor: 'red',
+        marginBottom: 25,
+        borderColor: '#DCDCDC',
+        borderTopWidth: 5
     },
     gearSetting: {
+        position: 'absolute',
+        top: '10%',
+        left: '90%',
         height: 30,
         width: 30
     },
@@ -27,9 +33,8 @@ export default StyleSheet.create({
         borderStyle: 'solid'
     },
     unlockedCows: {
-        width: 70,
-        backgroundColor: 'blue',
-        alignItems: 'center',
+        width: '60%',
+        // alignItems: 'center',
         flexDirection: 'column',
         margin: 10
     },
@@ -40,11 +45,31 @@ export default StyleSheet.create({
     },
     descriptionText: { 
         backgroundColor: "yellow",
-        width: '50%'
-        
+        width: '55%',
+        alignItems: 'center'
     },
     levelContentContainer: {
         alignItems: 'center'
+    },
+    levelDescriptionTitle: {
+        flex: 1
+    },
+    levelDescriptionHeader: {
+        flex: 1,
+        textAlign: 'center',
+    },
+    levelName: {
+        // alignSelf: 'flex-start',
+        // margin: 7
+    },
+    unlockedImgContainer: {
+        width: '100%',
+        backgroundColor: '#FFFFFF',
+        alignItems: 'center',
+        padding: 10,
+        margin: 5,
+        borderColor: '#808080',
+        borderWidth: 1,
+        borderRadius: 10,
     }
-
 });

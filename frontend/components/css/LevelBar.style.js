@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        height: 7,
-        width: 70,
+        height: 25,
+        width: '70%',
         flexDirection: 'row',
-        borderRadius: 10,
+        borderRadius: 15,
         overflow: 'hidden'
     },
     progressLine: {
@@ -16,6 +16,12 @@ export default StyleSheet.create({
         borderRightWidth: 5,
         borderRightColor: '#808080',
         borderStyle: 'solid'
+    },
+    progressNoLine: {
+        flex: 1,
+        backgroundColor: '#DCDCDC',
+    },
+    colorGreen: {
+        backgroundColor: '#008280'
     }
-
 });

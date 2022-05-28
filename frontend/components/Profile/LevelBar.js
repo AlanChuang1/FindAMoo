@@ -20,13 +20,15 @@ export default function LevelBar() {
 
 	return (
 		<View style={styles.container}>
-            <View style={styles.progressLine}>
+            <View style={[styles.progressLine, styles.colorGreen]}>
             </View>
             <View style={styles.progressLine}>
             </View>
             <View style={styles.progressLine}>
-            </View>
+            </View>            
             <View style={styles.progressLine}>
+            </View>
+            <View style={styles.progressNoLine}>
             </View>
 		</View>
 		
