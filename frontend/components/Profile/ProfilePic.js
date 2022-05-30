@@ -8,6 +8,9 @@ export default function CreateUserPage() {
 	const [text, onChangeText] = React.useState("");
     const [color, changeColor] = React.useState("blue");
     const [cow, changeCow] = React.useState("");
+
+	
+
 	return (
 		<View style={[styles.container, {backgroundColor: color}]}>
             

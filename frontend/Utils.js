@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import { im } from 'mathjs';
 
 // Utils.js is for holding helper functions that will be used by multiple components/js files. 
 
@@ -54,4 +55,59 @@ export const saveUserData = async (userData) => {
 }
 export const getUserData = async (userData) => {
 	return getData('userData');
+}
+
+export const getImageId = async (ori, col, spot, bell, acc) => {
+	const imageTable = { 
+		orientation: {
+			none: '0',
+			front: '1',
+			side: '2'
+		},
+		color: {
+			none: '0',
+			white: '1',
+			brown: '2',
+			darkBrown: '3'
+		},
+		spots: {
+			none: '0',
+			teal: '1',
+			orange: '2',
+			blue: '3',
+			pink: '4',
+			red: '5',
+			purple: '6'
+		},
+		bells: {
+			none: '0',
+			cow: '1',
+			moo: '2',
+			teal: '3',
+			yellow: '4',
+			pink: '5'
+		},
+		accessory: {
+			none: '0',
+			partyhat: '1',
+			gardenhat: '2',
+			tophat: '3',
+			witchhat: '4',
+			crown: '5',
+			bow: '6',
+			sprout: '7',
+			mustache: '8',
+			sunglasses: '9',
+			starglasses: '10'
+		}
+	}
+	// Default image id
+	let imageId = "cow11100.png";
+	try {
+		imageId = 'cow' + imageTable['orientation'][ori] + imageTable['color'][col] + imageTable['spots'][spot] + imageTable['bells'][bell] + imageTable['accessory'][acc] + '.png';
+	} catch (err) {
+		console.log(err);
+	}
+	return imageId;
+
 }
