@@ -3,13 +3,16 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
         marginTop: "0%",
-        marginBottom: "100%"
+        marginBottom: "100%",
+        resizeMode: 'contain',
+        width: "100%",
+        height: "100%"
     },
     barnButton: {
         marginTop: 120,
@@ -21,10 +24,14 @@ export default StyleSheet.create({
         letterSpacing: 3,
         width: 100,
         height: 40,
-        backgroundColor: 'grey',
+        backgroundColor: '#D3D3D3',
         borderRadius: 8,
-        position: 'absolute',
-        bottom: 0
+        position: 'relative',
+        bottom: 0,
+        paddingHorizontal: 12,
+        top: -200,
+        fontWeight: 'bold'
+        
     },
 
     shareButton: {
@@ -39,18 +46,31 @@ export default StyleSheet.create({
         height: 40,
         backgroundColor: '#FFDB47', 
         borderRadius: 8,
-        flex: 1
+        top: -500,
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        //flex: 1
+        fontWeight: 'bold'
        
     },
     inputTextBox: {
         backgroundColor: "#F9F9F9",
-        padding: 20,
+        //padding: 20,
+        top: -320,
+        alignItems: 'center',
+        textAlign: 'center',
+        //paddingHorizontal: 50,
+        justifyContent: 'center',
         height: 40,
         width: 150,
-        borderRadius: 5
+        borderRadius: 5,
+        fontWeight: 'bold'
+        
     },
+    
     titleText: {
-        marginBottom: 20,
+        marginBottom: 100,
         width: 200,
         textAlign: "center"
     },
@@ -58,7 +78,8 @@ export default StyleSheet.create({
         backgroundColor: "#FFFFFF",
         width: "70%",
         height: 100,
-        textAlign: "center"
+        textAlign: "center",
+        top: -100
 
     },
 

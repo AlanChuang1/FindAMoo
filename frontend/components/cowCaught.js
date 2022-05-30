@@ -6,6 +6,7 @@ import axios from 'axios';
 import { checkCrendentials, getUserData } from '../Utils';
 import { setStatusBarStyle } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
+import { NavigationType } from 'react-router';
 
 
 const server = axios.create({
@@ -29,7 +30,7 @@ async function getDailyCow(){   //async
 
 
 
-export default function CreateCowCaughtPage() {
+export default function CreateCowCaughtPage(navigation) {
 	const [text, onChangeText] = useState("");
 	const [url, geturl] = useState("https://findamoo.s3.us-west-1.amazonaws.com/cow11105.png");
 	
@@ -40,10 +41,11 @@ export default function CreateCowCaughtPage() {
 	return (
 		<ScrollView>
 		<View style={styles.container}>
+			{/* <Text style={{height: 80}}> </Text> */}
 			<Text style={[styles.titleText, defaultStyles.h1Text, styles.CowCaught]}>Cow Caught!</Text>
 
 			<Image 
-			style={{width: 90, height: 90}}
+			style={{width: 253, height: 193, top: -220}}
 			source={{uri: url}} 
 			/>
 
@@ -60,7 +62,7 @@ export default function CreateCowCaughtPage() {
 				style={[styles.barnButton, defaultStyles.buttonText]}
 				title='Go To Barn'
 				onPress={() => {
-					
+					navigation.navigate("BarnPage");
 				}}
 			>
 				<Text>Go To Barn</Text>
