@@ -12,6 +12,7 @@ import MainScreen from './components/MainScreen.js';
 import Profile from "./components/Profile/Profile.js";
 import CreateCowCaughtPage from './components/cowCaught.js';
 import BarnPage from './components/BarnPage.js';
+import Test from './components/Test.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,8 +35,6 @@ const App = () => {
 				<Stack.Screen
 					name="MainScreen"
 					component={MainScreen}
-					name="BarnPage"
-					component={BarnPage}
 				/>
 
 				<Stack.Screen					
@@ -58,14 +57,15 @@ const App = () => {
 				/>
 
 				<Stack.Screen
-					name="TutorialWelcome"
-					component={TutorialWelcome}
-				/>
-
-				<Stack.Screen
 					name="CreateCowCaughtPages"
 					component={CreateCowCaughtPage}
 				/>	
+
+				{/* Just for testing the navigation bar on Barn Page*/}
+				<Stack.Screen
+					name="Test"
+					component={Test}
+				/>
 				
 			</Stack.Navigator>
 		</NavigationContainer>
