@@ -33,7 +33,7 @@ export default StyleSheet.create({
         borderStyle: 'solid'
     },
     unlockedCows: {
-        width: '60%',
+        width: '80%',
         // alignItems: 'center',
         flexDirection: 'column',
         margin: 10
@@ -63,13 +63,28 @@ export default StyleSheet.create({
         // margin: 7
     },
     unlockedImgContainer: {
-        width: '100%',
+        flex: 1,
+        height: 100,
         backgroundColor: '#FFFFFF',
+        flexDirection: 'row',
         alignItems: 'center',
         padding: 10,
         margin: 5,
         borderColor: '#808080',
         borderWidth: 1,
         borderRadius: 10,
+    },
+    levelimgcontainer: {
+        flex: 1,
+        height: 50,
+        borderColor: 'red',
+        borderWidth: 1,
+        backgroundColor: 'yellow'
+    },
+    cowImagePNG: {
+        backgroundColor: 'pink',
+        width: '100%',
+        height: 50,
+        resizeMode: 'contain'
     }
 });
