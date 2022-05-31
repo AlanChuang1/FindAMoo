@@ -6,7 +6,7 @@ import MapStyle from './css/maps.style.js';
 
 import CowPinPointPng from './images/CowPinPointMini.png'; 
 
-export default function MapPage() {
+export default function MapPage({navigation}) {
   return (
     <View style={styles.container}>
         <MapView
@@ -33,6 +33,9 @@ export default function MapPage() {
                 title={"bow wow im a cow"}
                 description={"moo i guess"}
                 image={CowPinPointPng}     // on press -> cow caught page
+                onPress={() => {
+                  navigation.navigate("CreateCowCaughtPages");
+                }}
             />
         </MapView>
     </View>
