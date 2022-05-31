@@ -32,7 +32,7 @@ export default function MapPage() {
                 }
                 title={"bow wow im a cow"}
                 description={"moo i guess"}
-                image={CowPinPointPng}
+                image={CowPinPointPng}     // on press -> cow caught page
             />
         </MapView>
     </View>
