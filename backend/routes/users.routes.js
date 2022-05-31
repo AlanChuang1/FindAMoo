@@ -1,7 +1,5 @@
-import express from 'express';
-import User from '../models/users.model.js'; 
-
-const router = express.Router();
+const router = require('express').Router();
+let Users = require('../models/cows.model');
 
 function getDetailsFromRequest(req) {
     const id = req.body.id;
@@ -10,6 +8,7 @@ function getDetailsFromRequest(req) {
     const collectedIDs = req.body.collectedIDs;
     const favoriteID = req.body.favoriteID;
     const huntStreak = req.body.huntStreak;
+    const level = req.body.level;
 
     return {id, name, email, collectedIDs, favoriteID, huntStreak};
 }
@@ -36,6 +35,7 @@ router.route('/add_user').post((req, res) => {
     const collectedIDs = req.body.collectedIDs;
     const favoriteID = req.body.favoriteID;
     const huntStreak = req.body.huntStreak;
+    const level = req.body.level;
 
     const newUser = new User({
         id,
@@ -43,7 +43,8 @@ router.route('/add_user').post((req, res) => {
         email,
         collectedIDs,
         favoriteID,
-        huntStreak
+        huntStreak,
+        level
     });
 
     newUser.save()
@@ -66,4 +67,4 @@ router.route("/put/:id").put((req, res) => {
         return req, res; 
 });
 
-export default router;
+module.exports = router; 

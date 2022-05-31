@@ -51,6 +51,7 @@ export default StyleSheet.create({
     },
     button: {
         justifyContent: 'center',
+        textAlign:'center', 
         backgroundColor:"#FFDB47",
         borderRadius: 20,
         height: 47, 
