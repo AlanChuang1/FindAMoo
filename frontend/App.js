@@ -9,7 +9,7 @@ import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
 import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
 import MainScreen from './components/MainScreen.js';
-import Profile from "./components/Profile/Profile.js";
+import Profile from "./components/Profile.js";
 import CreateCowCaughtPage from './components/cowCaught.js';
 import BarnPage from './components/BarnPage.js';
 import Test from './components/Test.js';
