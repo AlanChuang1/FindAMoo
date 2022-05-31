@@ -10,7 +10,7 @@ import { NavigationType } from 'react-router';
 
 
 const server = axios.create({
-	baseURL: "http://localhost:5000",
+	baseURL: "https://frtl1ho6me.execute-api.us-west-1.amazonaws.com/production/",
 	timeout: 1000
 })
 
@@ -30,7 +30,8 @@ async function getDailyCow(){   //async
 
 
 
-export default function CreateCowCaughtPage(navigation) {
+
+export default function CreateCowCaughtPage({navigation}) {
 	const [text, onChangeText] = useState("");
 	const [url, geturl] = useState("https://findamoo.s3.us-west-1.amazonaws.com/cow11105.png");
 	

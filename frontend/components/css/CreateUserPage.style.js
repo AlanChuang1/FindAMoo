@@ -17,7 +17,7 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         letterSpacing: 3,
-        width: 40,
+        width: "40%",
         height: 40,
         backgroundColor: '#FFDB47',
         borderRadius: 8
@@ -26,12 +26,12 @@ export default StyleSheet.create({
         backgroundColor: "#F9F9F9",
         padding: 20,
         height: 40,
-        width: 60,
+        width: "60%",
         borderRadius: 5
     },
     titleText: {
         marginBottom: 20,
-        width: 50,
+        width: "50%",
         textAlign: "center"
     }
 });

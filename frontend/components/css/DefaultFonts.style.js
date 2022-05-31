@@ -36,8 +36,8 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderColor: "#CACACA",
         borderRadius: 10, 
-        height: "52px", 
-        width: "239px",
+        height: 52, 
+        width: 239,
 
         shadowColor: "#000",
         shadowOffset: {
@@ -51,6 +51,7 @@ export default StyleSheet.create({
     },
     button: {
         justifyContent: 'center',
+        textAlign:'center', 
         backgroundColor:"#FFDB47",
         borderRadius: 20,
         height: 47, 

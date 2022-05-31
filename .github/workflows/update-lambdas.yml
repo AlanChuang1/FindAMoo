@@ -1,0 +1,38 @@
+name: update-lambdas 
+
+on: 
+  push: 
+    branches: 
+      - main 
+  pull_request: 
+    branches: 
+      - main 
+
+jobs:
+  update-lambdas:
+    name: Update Lambda deployment 
+    runs-on: ubuntu-latest
+    defaults: 
+      run: 
+        working-directory: backend 
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14' 
+      - name: Install node modules 
+        run: npm install 
+      - name: Create env file 
+        run: | 
+          touch .env 
+          echo ATLAS_URI=${{ secrets.ATLAS_URI }}
+          cat .env 
+      - name: serverless deploy
+        uses: serverless/github-action@v3
+        with:
+          args: -c "cd ./backend && serverless deploy --stage production --conceal --force" 
+          entrypoint: /bin/sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+          SLS_INTERACTIVE_SETUP_ENABLE: 1 
