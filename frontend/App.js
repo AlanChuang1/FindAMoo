@@ -34,10 +34,6 @@ const App = () => {
 					headerShown: false
 				}} 
 			>	
-				{/* <Stack.Screen
-					name="ProfilePic"
-					component={ProfilePic}
-				/> */}
 				
 				<Stack.Screen
 					name="Login"
@@ -46,7 +42,11 @@ const App = () => {
 				<Stack.Screen
 					name="Profile"
 					component={Profile}
-        />
+        		/>
+				<Stack.Screen
+					name="ProfilePic"
+					component={ProfilePic}
+				/>
             
        			<Stack.Screen
 					name="MainScreen"
