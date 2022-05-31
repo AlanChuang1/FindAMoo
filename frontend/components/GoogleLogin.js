@@ -1,9 +1,9 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import * as React from 'react';
-import { StatusBar, Image, Text, View, Button, Pressable } from 'react-native';
+import { StatusBar, Text, View, Pressable } from 'react-native';
 import axios from 'axios';
-import {saveCredentials, checkCrendentials, saveUserData, getUserData, logout} from '../Utils.js';
+import {saveCredentials, checkCrendentials, saveUserData} from '../Utils.js';
 import styles from './css/GoogleLogin.style.js';
 import MainCow from './images/cows/cowmain_front.svg';
 import defaultStyles from './css/DefaultFonts.style';
@@ -44,18 +44,13 @@ export default function GoogleLogin({ navigation }) {
 	React.useEffect(() => {
 		const fetchProfile = async () => {
 			if (accessToken) {
+				// Access database and check if user exists
 				const googleUserData = await fetchUserInfo();
 				const user = (await getMooUserData(googleUserData)).data; 
 				// Save user credentials and user information.
 				await saveCredentials(user.id);
 				await saveUserData(JSON.stringify(user));
 
-
-				// let details = await checkCrendentials();
-				// let userData = await getUserData();
-				// console.log("Get credentials: "+ details);
-				// console.log("Get user information: ")
-				// console.log(JSON.parse(userData));
 				return true;
 			}
 			return false;
@@ -77,8 +72,9 @@ export default function GoogleLogin({ navigation }) {
 	async function getMooUserData(googleUserData){
 		// API calls to our own APIs 
 		let responseUserData = await server.get("/users/get_user/" + googleUserData.sub);
-
-        if (responseUserData){
+		// console.log(responseUserData);
+		// console.log(responseUserData);
+        if (!responseUserData.data){
 			// User does not exist, so create a user.
 			console.log("Creating user");
 			const newUser = {
@@ -98,6 +94,8 @@ export default function GoogleLogin({ navigation }) {
 					console.log("failed to add user " + error);
 				}
 			);
+		} else {
+			console.log("user exists");
 		}
 		return responseUserData;
 	}
@@ -128,11 +126,12 @@ export default function GoogleLogin({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<View style={styles.imgContainer}>
-				{/* <Image source={MainCow} style={styles.cowImage}></Image> */}
+				<MainCow style={styles.cowImage}/>
 			</View>
 			<Text style={[styles.titleText, defaultStyles.h1Text]}>FindAMoo</Text>
 			<Pressable
-				style={[styles.loginButton, defaultStyles.buttonText]}
+				elevation={8}
+				style={[styles.loginButton]}
 				disabled={!request}
 				title='Login'
 				onPress={() => {
@@ -143,7 +142,8 @@ export default function GoogleLogin({ navigation }) {
 					}
 				}}
 			>
-				<Text>Login</Text>
+				{ /* ideally, we will have a defaults style sheet for consistentecy on fonts (We were not able to make import fonts work) */ }
+				<Text style={styles.loginText}>Login</Text>
 			</Pressable>
 			<StatusBar style="auto"/>
 		</View>
