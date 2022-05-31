@@ -12,9 +12,8 @@ export default StyleSheet.create({
         width: '100%',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        marginBottom: 25,
-        borderColor: '#DCDCDC',
-        borderTopWidth: 5
+        marginTop: 50,
+        marginBottom: 25
     },
     gearSetting: {
         position: 'absolute',
@@ -49,15 +48,17 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     levelDescriptionTitle: {
-        flex: 1
+        flex: 1,
+        margin: 10
     },
     levelDescriptionHeader: {
         flex: 1,
         textAlign: 'center',
     },
     levelName: {
-        // alignSelf: 'flex-start',
-        // margin: 7
+        fontWeight: "bold",
+        fontSize: 16,
+        lineHeight: 25
     },
     unlockedImgContainer: {
         flex: 1,
@@ -80,5 +81,17 @@ export default StyleSheet.create({
         width: '100%',
         height: 50,
         resizeMode: 'contain'
+    },
+    line: {
+        width: '80%',
+        height: 5,
+        backgroundColor: "#DCDCDC",
+        marginTop: 50,
+        marginBottom: 15
+    },
+    levelText: {
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 5
     }
 });

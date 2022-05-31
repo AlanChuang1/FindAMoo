@@ -2,21 +2,22 @@
 import * as React from 'react';
 import { Image, Text, View, ScrollView, TextInput, Pressable } from 'react-native';
 import defaultStyles from '../css/DefaultFonts.style';
-import LevelBar from './LevelBar';
 import GearSetting from '../images/gear.svg';
 import Lock from "../images/lock.svg";
 import styles from '../css/Profile.style';
+import levelBarStyles from '../css/LevelBar.style';
 import StripeBG from '../images/stripebg.svg';
 import {checkCrendentials} from '../../Utils.js';
 import axios from 'axios';
 import { LEVEL1COWS, LEVEL2COWS, LEVEL3COWS, LEVEL4COWS, LEVEL5COWS } from '../images/Preview/index.js'
+import { NavigationContainer } from '@react-navigation/native';
 
 const server = axios.create({
 	baseURL: "https://frtl1ho6me.execute-api.us-west-1.amazonaws.com/production/",
 	timeout: 1000
 })
 
-export default function Profile() {
+export default function Profile( {navigation} ) {
 	
 	const [level, setLevel] = React.useState(1);
 	const [collectedCows, setCollectedCows] = React.useState([]);
@@ -28,6 +29,103 @@ export default function Profile() {
 		setLevel(levelData);
 	}
 	loadUserInfo();
+
+    // Hardcoded way of checking for level
+    // Future upkeep may want to find a better way to implement this
+    const levelBarSection = () => {
+        if (level == 1) {
+            return (
+                <View style={levelBarStyles.container}>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={levelBarStyles.progressLine}>
+                    </View>
+                    <View style={levelBarStyles.progressLine}>
+                    </View>            
+                    <View style={levelBarStyles.progressLine}>
+                    </View>
+                    <View style={levelBarStyles.progressNoLine}>
+                    </View>
+                </View>
+            );
+        } else if (level == 2) {
+            return (
+                <View style={levelBarStyles.container}>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={levelBarStyles.progressLine}>
+                    </View>            
+                    <View style={levelBarStyles.progressLine}>
+                    </View>
+                    <View style={levelBarStyles.progressNoLine}>
+                    </View>
+                </View>
+            );
+        } else if (level == 3) {
+            return (
+                <View style={levelBarStyles.container}>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>            
+                    <View style={levelBarStyles.progressLine}>
+                    </View>
+                    <View style={levelBarStyles.progressNoLine}>
+                    </View>
+                </View>
+            );
+        } else if (level == 4) {            
+            return (
+                <View style={levelBarStyles.container}>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>            
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={levelBarStyles.progressNoLine}>
+                    </View>
+                </View>
+            );
+        } else if (level == 5) {            
+            return (
+                <View style={levelBarStyles.container}>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>            
+                    <View style={[levelBarStyles.progressLine, levelBarStyles.colorGreen]}>
+                    </View>
+                    <View style={[levelBarStyles.progressNoLine, levelBarStyles.colorGreen]}>
+                    </View>
+                </View>
+            );
+        }
+		// Default (with zero levels and green bar)
+        return  (
+            <View style={levelBarStyles.container}>
+                <View style={[levelBarStyles.progressLine]}>
+                </View>
+                <View style={levelBarStyles.progressLine}>
+                </View>
+                <View style={levelBarStyles.progressLine}>
+                </View>            
+                <View style={levelBarStyles.progressLine}>
+                </View>
+                <View style={levelBarStyles.progressNoLine}>
+                </View>
+            </View>
+            
+        );
+    }
 
 
 	const lockedLevel = (imgsArray, inputLevel) => {
@@ -75,7 +173,6 @@ export default function Profile() {
 		return (
 			<View style={styles.unlockedCows}>
 				<Text style={styles.levelName}>{props.level}</Text>
-				<Text>Collect {props.required} cows</Text>
 				<View style={styles.unlockedImgContainer}>
 					{ lockedLevel(level1, 1) }
 				</View>
@@ -151,7 +248,7 @@ export default function Profile() {
 	const LevelDescription = () => {
 		return (
 			<View style={styles.descriptionText}>
-				<Text style={styles.levelDescriptionTitle}>Level System</Text>
+				<Text style={[styles.levelDescriptionTitle, defaultStyles.h3Text]}>Level System</Text>
 				<Text style={styles.levelDescriptionHeader}>Collect more cows to level up and unlock a new cow variation!</Text>
 			</View>
 		);
@@ -163,12 +260,21 @@ export default function Profile() {
 	return (
 		<ScrollView style={styles.container}>
 			<View style={styles.topBar}>		
-				<Text>Profile</Text> 
-				<GearSetting style={styles.gearSetting}/>
+				<Text style={defaultStyles.h2Text}>Profile</Text> 
+				<GearSetting 
+					style={styles.gearSetting}
+					onPress={() => { 
+						//navigation.navigate("ProfilePic") 
+					}}
+				/>
 			</View> 
 			<View style={styles.levelContentContainer}>
-				<LevelBar/>
-				<LevelDescription/>
+				<View>
+					<Text style={[defaultStyles.h3Text, styles.levelText]}>Level {level}</Text>
+					{ levelBarSection() }
+				</View>
+				<View style={styles.line}></View>
+				<LevelDescription level={level}/>
 				<UnlockedCows1 level="Level 1: Spotless cow"/>
 				<UnlockedCows2 level="Level 2: Spotted cow" required="5"/>
 				<UnlockedCows3 level="Level 3: Cowbell" required="10"/>

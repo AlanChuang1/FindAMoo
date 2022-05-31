@@ -13,7 +13,7 @@ export default StyleSheet.create({
         flex: 1,
         width: 10,
         backgroundColor: '#DCDCDC',
-        borderRightWidth: 5,
+        borderRightWidth: 2,
         borderRightColor: '#808080',
         borderStyle: 'solid'
     },
