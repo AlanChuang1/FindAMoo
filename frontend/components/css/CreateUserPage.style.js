@@ -24,14 +24,27 @@ export default StyleSheet.create({
     },
     inputTextBox: {
         backgroundColor: "#F9F9F9",
-        padding: 20,
-        height: 40,
+        color: '#000000',
+        padding: 2,
+        paddingLeft: 15,
+        paddingRight: 15,
         width: "60%",
-        borderRadius: 5
+        flex: 1,
+        borderRadius: 5,
+        fontSize: 18,
+        fontWeight: "500"
     },
     titleText: {
         marginBottom: 20,
         width: "50%",
         textAlign: "center"
+    },
+    textInputContainer: {
+        width: '90%',
+        height: 50,
+        alignItems: 'center'
+    },
+    butText: {
+        textAlign: 'center'
     }
 });
