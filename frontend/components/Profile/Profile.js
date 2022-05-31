@@ -264,7 +264,7 @@ export default function Profile( {navigation} ) {
 				<GearSetting 
 					style={styles.gearSetting}
 					onPress={() => { 
-						//navigation.navigate("ProfilePic") 
+						navigation.navigate("ProfilePic") 
 					}}
 				/>
 			</View> 
