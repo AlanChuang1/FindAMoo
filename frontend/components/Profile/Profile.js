@@ -14,7 +14,7 @@ import { LEVEL1COWS, LEVEL2COWS, LEVEL3COWS, LEVEL4COWS, LEVEL5COWS } from '../i
 // cows level 1
 
 const server = axios.create({
-	baseURL: "http://localhost:5000",
+	baseURL: "http://localhost:5001",
 	timeout: 1000
 })
 
@@ -25,17 +25,14 @@ export default function Profile() {
 	
 	const loadUserInfo = async () => {
 		console.log("Loading default data");
-		//let userData = await getUserData();
-		// console.log(userData);
-		//changeLevel();
+		let userId = await checkCrendentials();
+		// let userId = "109510457720541931009";
+		let userData = await server.get("/users/get_user/" + userId);
+		let levelData = userData.data.level;
+		changeLevel(levelData);
 	}
+	loadUserInfo();
 
-	// TODO: 
-	// Calculates the level of the user based on collected cows
-	// INPUT: expects an array of collected cow IDS
-	const calculateLevel = async (collectedIDS) => {
-		
-	}
 
 	const lockedLevel = (imgsArray, inputLevel) => {
 		if(inputLevel === 1 && level >= 1){
@@ -69,7 +66,7 @@ export default function Profile() {
 			</View>))
 		}
 		return (<View style={styles.levelimgcontainer}>
-					<Lock/>
+					{/* <Lock/> */}
 				</View>);
 	}
 	const UnlockedCows1 = (props) => {
@@ -182,7 +179,7 @@ export default function Profile() {
 		<ScrollView style={styles.container}>
 			<View style={styles.topBar}>		
 				<Text>Profile</Text> 
-				<GearSetting style={styles.gearSetting}/>
+				{/* <GearSetting style={styles.gearSetting}/> */}
 			</View> 
 			<View style={styles.levelContentContainer}>
 				<LevelBar/>

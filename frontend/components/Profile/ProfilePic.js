@@ -12,7 +12,6 @@ const server = axios.create({
 })
 
 export default function ProfilePic() {
-	const [text, onChangeText] = React.useState("");
     const [color, changeColor] = React.useState("blue");
     const [cow, changeCow] = React.useState("cow11101");
 	const [cowsUnlocked, changeCowsUnlocked] = React.useState([]);
@@ -60,7 +59,6 @@ export default function ProfilePic() {
 
 	}
 	const PalleteBut = (props) => {
-		console.log(props);
 		let colorHexCode = "#" + props.bgcolor;
 		return (
 			<Pressable 
