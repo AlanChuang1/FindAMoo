@@ -95,7 +95,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     subtitleText: {
-        fontFamily: 'Avenir',
+        // fontFamily: 'Avenir',
         fontStyle: 'normal',
         fontWeight: "400",
         fontSize: 20,
@@ -104,7 +104,7 @@ export default StyleSheet.create({
         color: "#000000"
     },
     boldBodyText: {
-        fontFamily: 'Avenir',
+        // fontFamily: 'Avenir',
         fontStyle: 'normal',
         fontWeight: "400",
         fontSize: 18,
@@ -113,7 +113,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     bodyText: {
-        fontFamily: 'Avenir',
+        // fontFamily: 'Avenir',
         fontStyle: 'normal',
         fontWeight: "400",
         fontSize: 20,
@@ -123,7 +123,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     smallText: {
-        fontFamily: 'Avenir',
+        // fontFamily: 'Avenir',
         fontStyle: 'normal',
         fontWeight: "500",
         fontSize: 16,
@@ -131,7 +131,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     buttonText: {
-        fontFamily: 'Lexend',
+        // fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 16,

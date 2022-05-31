@@ -35,17 +35,13 @@ const removeData = async (key) => {
 
 // Saves credentials of logged user to see if they are logged in.
 export const saveCredentials = async (credentials) => {
-	console.log("Testing save credentials...");
 	saveData('credentials', credentials);
 }
 export const checkCrendentials = async () => {
-    console.log("Getting user credentials...");
 	return getData('credentials');
 }
 export const logout = async () => {
 	removeData('credentials');
-	
-	console.log(checkCrendentials);
 }
 
 // Saving user data (cows, id, etc) and removing user. 
