@@ -2,18 +2,22 @@ import { StyleSheet } from 'react-native';
 
 
 export default StyleSheet.create({
-    container: {
-        height: 75,
-        width: 75,
-        borderRadius: 75
+    piccontainer: {
+        height: 120,
+        width: 120,
+        borderRadius: 120,
+        justifyContent: 'center',
+        alignContent: 'center'
+    },
+    titleText: {
+        marginTop: 50,
+        marginBottom: 27
     },
     bgPalleteContainer: {
-        width: 100,
-        backgroundColor: 'pink',
+        width: 100
     },
     bgPallete: {
-        width: '80%',
-        backgroundColor: 'red'
+        width: '80%'
     },
     palleteBut: {
         height: 50,
@@ -25,23 +29,42 @@ export default StyleSheet.create({
         flexDirection: 'row',
         flex: 1, 
         // width: '70%',
-        justifyContent: 'space-between',
-        backgroundColor: 'yellow'
+        justifyContent: 'space-between'
     },
     cowImg: {
         // backgroundColor: 'pink',
         width: '100%',
-        height: 70,
+        height: 100,
         resizeMode: 'contain'
     },
     changePalleteSection: {
         alignItems: 'center',
-        backgroundColor: 'pink',
-        width: '80%'    
+        width: '80%',
+        marginTop: 30 
     },
     pageContainer: {
         flex: 1,
         // justifyContent: 'center'
         alignItems: 'center'
+    },
+    cowCollection: {
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        justifyContent: 'space-evenly',
+        width: "90%",
+        margin: 50
+    },
+    cowImages: {
+        width: 150, 
+        height: 200,
+        resizeMode: 'contain'
+    },
+    cowImagesContainer: {
+        borderWidth: 2,
+        borderColor: '#E5E5E5',
+        borderRadius: 25, // not working for some reason,
+        marginTop: 10,
+        marginBottom: 10
     }
 });
