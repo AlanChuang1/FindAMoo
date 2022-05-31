@@ -4,7 +4,7 @@ import { createBottomTabNavigator, createNativeTabsNavigator } from '@react-navi
 
 import MapPage from './MapPage.js';
 import BarnPage from './BarnPage.js';
-import ProfilePage from './Profile.js';
+import ProfilePage from './Profile/Profile.js';
 import MapIconFocused from './images/map_active.png'; 
 import MapIconUnfocused from './images/map_inactive.png';
 import BarnIconFocused from './images/barn_active.png';

@@ -14,7 +14,7 @@ import axios from 'axios';
 // cows level 1
 
 const server = axios.create({
-	baseURL: "http://localhost:5000",
+	baseURL: "https://frtl1ho6me.execute-api.us-west-1.amazonaws.com/production/",
 	timeout: 1000
 })
 

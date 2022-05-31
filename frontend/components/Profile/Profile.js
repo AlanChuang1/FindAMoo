@@ -7,15 +7,12 @@ import GearSetting from '../images/gear.svg';
 import Lock from "../images/lock.svg";
 import styles from '../css/Profile.style';
 import StripeBG from '../images/stripebg.svg';
-import {getUserData} from '../../Utils.js';
 import {checkCrendentials} from '../../Utils.js';
 import axios from 'axios';
 import { LEVEL1COWS, LEVEL2COWS, LEVEL3COWS, LEVEL4COWS, LEVEL5COWS } from '../images/Preview/index.js'
-// cows level 1
 
 const server = axios.create({
-	baseURL: "http://localhost:5001",
-
+	baseURL: "https://frtl1ho6me.execute-api.us-west-1.amazonaws.com/production/",
 	timeout: 1000
 })
 
@@ -25,12 +22,10 @@ export default function Profile() {
 	const [collectedCows, setCollectedCows] = React.useState([]);
 	
 	const loadUserInfo = async () => {
-		console.log("Loading default data");
 		let userId = await checkCrendentials();
-		// let userId = "109510457720541931009";
 		let userData = await server.get("/users/get_user/" + userId);
 		let levelData = userData.data.level;
-		changeLevel(levelData);
+		setLevel(levelData);
 	}
 	loadUserInfo();
 
@@ -67,7 +62,7 @@ export default function Profile() {
 			</View>))
 		}
 		return (<View style={styles.levelimgcontainer}>
-					{/* <Lock/> */}
+					<Lock/>
 				</View>);
 	}
 	const UnlockedCows1 = (props) => {
@@ -114,10 +109,7 @@ export default function Profile() {
 				<Text style={styles.levelName}>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
 				<View style={styles.unlockedImgContainer}>
-					{/* <Lock/> */}
 					{ lockedLevel(level3, 3) }
-							
-						
 				</View>
 			</View>
 		);
@@ -134,9 +126,7 @@ export default function Profile() {
 				<Text style={styles.levelName}>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
 				<View style={styles.unlockedImgContainer}>
-					{/* <Lock/> */}
 					{ lockedLevel(level4, 4) }
-				
 				</View>
 			</View>
 		);
@@ -152,12 +142,8 @@ export default function Profile() {
 			<View style={styles.unlockedCows}>
 				<Text style={styles.levelName}>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
-				{/* <Image source={Lock} style={styles.lockImages}/>	 */}
 				<View style={styles.unlockedImgContainer}>
-					{/* <StripeBG style={{ width: 1, height: 1}}/> */}
-					{/* <Lock/> */}
 					{ lockedLevel(level5, 5) }
-					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */
 				</View>
 			</View>
 		);
@@ -178,7 +164,7 @@ export default function Profile() {
 		<ScrollView style={styles.container}>
 			<View style={styles.topBar}>		
 				<Text>Profile</Text> 
-				{/* <GearSetting style={styles.gearSetting}/> */}
+				<GearSetting style={styles.gearSetting}/>
 			</View> 
 			<View style={styles.levelContentContainer}>
 				<LevelBar/>

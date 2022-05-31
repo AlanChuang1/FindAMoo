@@ -16,7 +16,7 @@ export default function BarnPage({navigation}) {
 
 	async function getAllCows() { 
 		try{
-			const promise = await axios.get('http://192.168.186.92:5001/cows/get_all_cows');
+			const promise = await axios.get('https://frtl1ho6me.execute-api.us-west-1.amazonaws.com/production/cows/get_all_cows');
 			return promise.data;
 		} catch(err) {
 			console.log(err);
