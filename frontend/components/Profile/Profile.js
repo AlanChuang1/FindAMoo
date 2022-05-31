@@ -20,23 +20,59 @@ const server = axios.create({
 
 export default function Profile() {
 	//let unlockedCows = 
-	const [level, setLevel] = React.useState(0);
+	const [level, setLevel] = React.useState(1);
 	const [collectedCows, setCollectedCows] = React.useState([]);
 	
 	const loadUserInfo = async () => {
 		console.log("Loading default data");
 		//let userData = await getUserData();
 		// console.log(userData);
-
 		//changeLevel();
 	}
 
+	// TODO: 
 	// Calculates the level of the user based on collected cows
 	// INPUT: expects an array of collected cow IDS
 	const calculateLevel = async (collectedIDS) => {
 		
 	}
 
+	const lockedLevel = (imgsArray, inputLevel) => {
+		console.log(level);
+		if(inputLevel === 1 && level >= 1){
+			return (imgsArray.map((item) => 
+			<View style={styles.levelimgcontainer} key={item.name}>
+				<Image source={item.img} style={styles.cowImagePNG}/>
+			</View>))
+		}
+		if(inputLevel === 2 && level >= 2){
+			return (imgsArray.map((item) => 
+			<View style={styles.levelimgcontainer} key={item.name}>
+				<Image source={item.img} style={styles.cowImagePNG}/>
+			</View>))
+		}
+		if(inputLevel === 3 && level >= 3){
+			return (imgsArray.map((item) => 
+			<View style={styles.levelimgcontainer} key={item.name}>
+				<Image source={item.img} style={styles.cowImagePNG}/>
+			</View>))
+		}
+		if(inputLevel === 4 && level >= 4){
+			return (imgsArray.map((item) => 
+			<View style={styles.levelimgcontainer} key={item.name}>
+				<Image source={item.img} style={styles.cowImagePNG}/>
+			</View>))
+		}
+		if(inputLevel === 5 && level >= 5){
+			return (imgsArray.map((item) => 
+			<View style={styles.levelimgcontainer} key={item.name}>
+				<Image source={item.img} style={styles.cowImagePNG}/>
+			</View>))
+		}
+		return (<View style={styles.levelimgcontainer}>
+					<Lock/>
+				</View>);
+	}
 	const UnlockedCows1 = (props) => {
 		let level1 = [  {name: "cowbrown_front", img: LEVEL1COWS.cowbrown_front},
 						{name: "cowbrown_long", img: LEVEL1COWS.cowbrown_long}, 
@@ -48,16 +84,8 @@ export default function Profile() {
 			<View style={styles.unlockedCows}>
 				<Text style={styles.levelName}>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
-				{/* <Image source={Lock} style={styles.lockImages}/>	 */}
 				<View style={styles.unlockedImgContainer}>
-					{/* <StripeBG style={{ width: 1, height: 1}}/> */}
-					{/* <Lock/> */}
-					{ level1.map((item) => 
-						<View style={styles.levelimgcontainer} key={item.name}>
-							<Image source={item.img} style={styles.cowImagePNG}/>
-						</View>
-					)}
-					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */}
+					{ lockedLevel(level1, 1) }
 				</View>
 			</View>
 		);
@@ -72,16 +100,8 @@ export default function Profile() {
 			<View style={styles.unlockedCows}>
 				<Text style={styles.levelName}>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
-				{/* <Image source={Lock} style={styles.lockImages}/>	 */}
 				<View style={styles.unlockedImgContainer}>
-					{/* <StripeBG style={{ width: 1, height: 1}}/> */}
-					{/* <Lock/> */}
-					{ level2.map((item) => 
-						<View style={styles.levelimgcontainer} key={item.name}>
-							<Image source={item.img} style={styles.cowImagePNG}/>
-						</View>
-					)}
-					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */}
+					{ lockedLevel(level2, 2) }
 				</View>
 			</View>
 		);
@@ -91,22 +111,16 @@ export default function Profile() {
 						{name: "bells31", img: LEVEL3COWS.bells31}, 
 						{name: "bells32", img: LEVEL3COWS.bells32}, 
 						{name: "bells33", img: LEVEL3COWS.bells33},
-						{name: "bells34", img: LEVEL3COWS.bells34}	
-					];
+						{name: "bells34", img: LEVEL3COWS.bells34}	];
 		return (
 			<View style={styles.unlockedCows}>
 				<Text style={styles.levelName}>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
-				{/* <Image source={Lock} style={styles.lockImages}/>	 */}
 				<View style={styles.unlockedImgContainer}>
-					{/* <StripeBG style={{ width: 1, height: 1}}/> */}
 					{/* <Lock/> */}
-					{ level3.map((item) => 
-						<View style={styles.levelimgcontainer} key={item.name}>
-							<Image source={item.img} style={styles.cowImagePNG}/>
-						</View>
-					)}
-					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */}
+					{ lockedLevel(level3, 3) }
+							
+						
 				</View>
 			</View>
 		);
@@ -122,16 +136,10 @@ export default function Profile() {
 			<View style={styles.unlockedCows}>
 				<Text style={styles.levelName}>{props.level}</Text>
 				<Text>Collect {props.required} cows</Text>
-				{/* <Image source={Lock} style={styles.lockImages}/>	 */}
 				<View style={styles.unlockedImgContainer}>
-					{/* <StripeBG style={{ width: 1, height: 1}}/> */}
 					{/* <Lock/> */}
-					{ level4.map((item) => 
-						<View style={styles.levelimgcontainer} key={item.name}>
-							<Image source={item.img} style={styles.cowImagePNG}/>
-						</View>
-					)}
-					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */}
+					{ lockedLevel(level4, 4) }
+				
 				</View>
 			</View>
 		);
@@ -151,11 +159,7 @@ export default function Profile() {
 				<View style={styles.unlockedImgContainer}>
 					{/* <StripeBG style={{ width: 1, height: 1}}/> */}
 					{/* <Lock/> */}
-					{ level5.map((item) => 
-						<View style={styles.levelimgcontainer} key={item.name}>
-							<Image source={item.img} style={styles.cowImagePNG}/>
-						</View>
-					)}
+					{ lockedLevel(level5, 5) }
 					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */}
 				</View>
 			</View>
@@ -169,41 +173,17 @@ export default function Profile() {
 			</View>
 		);
 	}
-	const LevelList = () => {
-
-	}
-	// https://www.freakyjolly.com/react-dynamic-list-using-map-else-and-switch-conditional-expression-in-jsx-template-rendering/
-	const levelCows = (list) => {
-		return (	
-			<View>
-				{ list.map((item) => 
-					<View>
-						<Image source={item.image} style={{height:"50", width:"150"}}/>
-					</View>
-				)};
-			</View>
-		);
-	}
 
 	React.useEffect(() => {
 		// console.log("Rendering");
-		// const getUserData = server.get('/users/get_user', {
-		// 	method: 'GET',
-		// 	headers: {
-		// 		id : checkCrendentials()
-		// 	},
-		// });
-		// setCollectedCows(getUserData);
-		// console.log(getUserData);
-		// console.log(LEVEL1COWS);
+
 	});
 
 	return (
 		<ScrollView style={styles.container}>
 			<View style={styles.topBar}>		
 				<Text>Profile</Text> 
-				{/* <Image source={GearSetting} style={styles.gearSetting}/> */}
-				{/* <GearSetting style={styles.gearSetting}/> */}
+				<GearSetting style={styles.gearSetting}/>
 			</View> 
 			<View style={styles.levelContentContainer}>
 				<LevelBar/>

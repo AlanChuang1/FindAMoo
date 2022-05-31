@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
-import { im } from 'mathjs';
 
 // Utils.js is for holding helper functions that will be used by multiple components/js files. 
 

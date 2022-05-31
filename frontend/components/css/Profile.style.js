@@ -5,21 +5,20 @@ export default StyleSheet.create({
     container: {
         flexDirection: 'column',
         borderRadius: 10,
-        backgroundColor: 'red'
+        backgroundColor: '#FFFFFF'
     },
     topBar: {
         flexDirection: 'row',
         width: '100%',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        backgroundColor: 'red',
         marginBottom: 25,
         borderColor: '#DCDCDC',
         borderTopWidth: 5
     },
     gearSetting: {
         position: 'absolute',
-        top: '10%',
+        top: '10%'  ,
         left: '90%',
         height: 30,
         width: 30
@@ -34,19 +33,17 @@ export default StyleSheet.create({
     },
     unlockedCows: {
         width: '80%',
-        // alignItems: 'center',
         flexDirection: 'column',
         margin: 10
     },
     lockImages: {
         height: 50,
-        width: 50,
-        backgroundColor: "blue"
+        width: 50
     },
     descriptionText: { 
-        backgroundColor: "yellow",
         width: '55%',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 15
     },
     levelContentContainer: {
         alignItems: 'center'
@@ -77,12 +74,9 @@ export default StyleSheet.create({
     levelimgcontainer: {
         flex: 1,
         height: 50,
-        borderColor: 'red',
-        borderWidth: 1,
-        backgroundColor: 'yellow'
+        alignItems: 'center'
     },
     cowImagePNG: {
-        backgroundColor: 'pink',
         width: '100%',
         height: 50,
         resizeMode: 'contain'
