@@ -38,7 +38,6 @@ export default function Profile() {
 	}
 
 	const lockedLevel = (imgsArray, inputLevel) => {
-		console.log(level);
 		if(inputLevel === 1 && level >= 1){
 			return (imgsArray.map((item) => 
 			<View style={styles.levelimgcontainer} key={item.name}>
