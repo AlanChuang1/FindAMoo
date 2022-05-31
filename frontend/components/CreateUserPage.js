@@ -3,14 +3,14 @@ import { Text, View, TextInput, Pressable } from 'react-native';
 import styles from './css/CreateUserPage.style';
 import defaultStyles from './css/DefaultFonts.style';
 
-export default function CreateUserPage() {
-	const [text, onChangeText] = React.useState("");
+export default function CreateUserPage({navigation}) {
+	const [text, onChangeText] = React.useState("fasdfasfdsa");
 	return (
 		<View style={styles.container}>
 			<Text style={[styles.titleText, defaultStyles.h2Text]}>Create your username</Text>
 			<TextInput
 				style={styles.inputTextBox}
-				onChangeText={onChangeText}
+				onChangeText={textInput => onChangeText(textInput)}
 				value={text}
 				placeholder="Username"
 			/>
@@ -18,7 +18,7 @@ export default function CreateUserPage() {
 				style={[styles.nextButton, defaultStyles.buttonText]}
 				title='Next'
 				onPress={() => {
-					
+					navigation.navigate('MainScreen');
 				}}
 			>
 				<Text>Next</Text>

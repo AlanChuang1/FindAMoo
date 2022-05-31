@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Users = require('../models/cows.model');
+let User = require('../models/users.model');
 
 function getDetailsFromRequest(req) {
     const id = req.body.id;

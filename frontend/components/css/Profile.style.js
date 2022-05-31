@@ -5,14 +5,13 @@ export default StyleSheet.create({
     container: {
         flexDirection: 'column',
         borderRadius: 10,
-        backgroundColor: 'red'
+        backgroundColor: '#FFFFFF'
     },
     topBar: {
         flexDirection: 'row',
         width: '100%',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        backgroundColor: 'red',
         marginBottom: 25,
         borderColor: '#DCDCDC',
         borderTopWidth: 5
@@ -33,20 +32,18 @@ export default StyleSheet.create({
         borderStyle: 'solid'
     },
     unlockedCows: {
-        width: '60%',
-        // alignItems: 'center',
+        width: '80%',
         flexDirection: 'column',
         margin: 10
     },
     lockImages: {
         height: 50,
-        width: 50,
-        backgroundColor: "blue"
+        width: 50
     },
     descriptionText: { 
-        backgroundColor: "yellow",
         width: '55%',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 15
     },
     levelContentContainer: {
         alignItems: 'center'
@@ -63,13 +60,25 @@ export default StyleSheet.create({
         // margin: 7
     },
     unlockedImgContainer: {
-        width: '100%',
+        flex: 1,
+        height: 100,
         backgroundColor: '#FFFFFF',
+        flexDirection: 'row',
         alignItems: 'center',
         padding: 10,
         margin: 5,
         borderColor: '#808080',
         borderWidth: 1,
         borderRadius: 10,
+    },
+    levelimgcontainer: {
+        flex: 1,
+        height: 50,
+        alignItems: 'center'
+    },
+    cowImagePNG: {
+        width: '100%',
+        height: 50,
+        resizeMode: 'contain'
     }
 });

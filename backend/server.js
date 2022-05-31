@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-const port = 5001;
+const port = 5000;
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); 

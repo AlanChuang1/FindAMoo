@@ -10,7 +10,7 @@ const usersSchema = new Schema(
       collectedIDs: { type: [String], required: true },
       favoriteID: { type: [String], required: true },
       huntStreak: { type: [String], required: true },
-      level: { type: Number, required: true},
+      level: { type: Number, required: false},
     },
     {
       timestamps: true,

@@ -9,7 +9,7 @@ import MainCow from './images/cows/cowmain_front.svg';
 import defaultStyles from './css/DefaultFonts.style';
 
 const server = axios.create({
-	baseURL: "http://localhost:5000",
+	baseURL: "https://frtl1ho6me.execute-api.us-west-1.amazonaws.com/production/",
 	timeout: 1000
 })
 
@@ -28,7 +28,6 @@ export default function GoogleLogin({ navigation }) {
 		iosClientId: '805957129584-s2o0uo0j5kllnpov8c3gva6gp8bko73b.apps.googleusercontent.com',
 		androidClientId: '805957129584-6p7smpdhcvpb5ddqo3l290093k8d84cs.apps.googleusercontent.com',
 		webClientId:  '805957129584-1gsvpellt6ojk12oupl1o5jol5om4b9n.apps.googleusercontent.com',
-
 	});
 
 	// On response success, update access token.
@@ -47,8 +46,6 @@ export default function GoogleLogin({ navigation }) {
 			if (accessToken) {
 				const googleUserData = await fetchUserInfo();
 				const user = (await getMooUserData(googleUserData)).data; 
-				
-				console.log("hello", user);
 				// Save user credentials and user information.
 				await saveCredentials(user.id);
 				await saveUserData(JSON.stringify(user));
@@ -90,14 +87,15 @@ export default function GoogleLogin({ navigation }) {
 				email: googleUserData.email,
 				collectedIDs: [""],
 				favoriteID: [""],
-				huntStreak: [""]
+				huntStreak: [""],
+				level: 1
 			}
 
 			await server.post("/users/add_user", newUser)
 				.then((response) => {
 					responseUserData = response;
 				}, (error) => {
-					console.log(error);
+					console.log("failed to add user " + error);
 				}
 			);
 		}
@@ -130,7 +128,7 @@ export default function GoogleLogin({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<View style={styles.imgContainer}>
-				<Image source={MainCow} style={styles.cowImage}></Image>
+				{/* <Image source={MainCow} style={styles.cowImage}></Image> */}
 			</View>
 			<Text style={[styles.titleText, defaultStyles.h1Text]}>FindAMoo</Text>
 			<Pressable

@@ -7,9 +7,10 @@ import { useFonts } from 'expo-font';
 
 import GoogleLogin from "./components/GoogleLogin.js";
 import CreateUserPage from "./components/CreateUserPage.js";
+import Profile from "./components/Profile/Profile.js";
+import ProfilePic from './components/Profile/ProfilePic.js';
 import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
 import MainScreen from './components/MainScreen.js';
-import Profile from "./components/Profile/Profile.js";
 import CreateCowCaughtPage from './components/cowCaught.js';
 import BarnPage from './components/BarnPage.js';
 import Test from './components/Test.js';
@@ -28,11 +29,26 @@ const App = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator 
+			
 				screenOptions={{
 					headerShown: false
 				}} 
-			>
+			>	
+				{/* <Stack.Screen
+					name="ProfilePic"
+					component={ProfilePic}
+				/> */}
+				
 				<Stack.Screen
+					name="Login"
+					component={GoogleLogin}
+				/>
+				<Stack.Screen
+					name="Profile"
+					component={Profile}
+        />
+            
+       			<Stack.Screen
 					name="MainScreen"
 					component={MainScreen}
 				/>
@@ -51,10 +67,10 @@ const App = () => {
 					name="Introduction"
 					component={CreateUserPage}
 				/>
-				<Stack.Screen
+				{/* <Stack.Screen
 					name="Login"
 					component={GoogleLogin}
-				/>
+				/> */}
 
 				<Stack.Screen
 					name="CreateCowCaughtPages"
