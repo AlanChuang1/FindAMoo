@@ -28,7 +28,6 @@ export default function GoogleLogin({ navigation }) {
 		iosClientId: '805957129584-s2o0uo0j5kllnpov8c3gva6gp8bko73b.apps.googleusercontent.com',
 		androidClientId: '805957129584-6p7smpdhcvpb5ddqo3l290093k8d84cs.apps.googleusercontent.com',
 		webClientId:  '805957129584-1gsvpellt6ojk12oupl1o5jol5om4b9n.apps.googleusercontent.com',
-
 	});
 
 	// On response success, update access token.
