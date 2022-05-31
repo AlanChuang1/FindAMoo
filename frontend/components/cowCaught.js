@@ -30,6 +30,7 @@ async function getDailyCow(){   //async
 
 
 
+
 export default function CreateCowCaughtPage({navigation}) {
 	const [text, onChangeText] = useState("");
 	const [url, geturl] = useState("https://findamoo.s3.us-west-1.amazonaws.com/cow11105.png");
