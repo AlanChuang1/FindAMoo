@@ -131,7 +131,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     buttonText: {
-        fontFamily: 'Lexend',
+        // fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 16,
