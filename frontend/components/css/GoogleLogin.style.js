@@ -12,12 +12,12 @@ export default StyleSheet.create({
         marginTop: 0,
         justifyContent: 'center',
         textAlign: 'center',
-        fontFamily: 'lexend',
+        //fontFamily: 'lexend',
         fontWeight: 'bold',
         fontSize: 16,
         letterSpacing: 3,
-        width: "40vw",
-        height: "40px",
+        width: "40%",
+        height: 40,
         backgroundColor: '#FFDB47',
         borderRadius: 8
     },    
@@ -25,28 +25,28 @@ export default StyleSheet.create({
         marginTop: 0,
         justifyContent: 'center',
         textAlign: 'center',
-        fontFamily: 'lexend',
+        //fontFamily: 'lexend',
         fontWeight: 'bold',
         fontSize: 16,
         letterSpacing: 3,
-        width: "40vw",
-        height: "40px",
+        width: "40%",
+        height: 40,
         backgroundColor: '#FFDB47',
         borderRadius: 8
     },
     titleText: {
         marginTop: 30,
         marginBottom: 30,
-        fontFamily: 'lexend',
+        //fontFamily: 'lexend',
         fontWeight: 'bold',
         fontSize: 40
     },
     cowImage: {
-        width: "200px",
-        height: "250px"
+        width: 200,
+        height: 250
     },
     imgContainer: {
-        marginTop: "75px"
+        marginTop: 75
     }
 
 });
