@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, Alert, View, SafeAreaView, Button, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, Image, TextInput, Alert, View, SafeAreaView, Button, useWindowDimensions } from 'react-native';
 import axios from 'axios';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -10,7 +10,11 @@ import CreateUserPage from "./components/CreateUserPage.js";
 import Profile from "./components/Profile/Profile.js";
 import ProfilePic from './components/Profile/ProfilePic.js';
 import TutorialWelcome from './components/Tutorial/TutorialSwiper.js';
-import MapPage from './components/MapPage.js'
+import MainScreen from './components/MainScreen.js';
+import Profile from "./components/Profile.js";
+import CreateCowCaughtPage from './components/cowCaught.js';
+import BarnPage from './components/BarnPage.js';
+import Test from './components/Test.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,8 +42,23 @@ const App = () => {
 				<Stack.Screen
 					name="Profile"
 					component={Profile}
+        />
+            
+        <Stack.Screen
+					name="MainScreen"
+					component={MainScreen}
 				/>
 
+				<Stack.Screen					
+					name="BarnPage"
+					component={BarnPage}
+				/>
+
+				<Stack.Screen
+					name="TutorialWelcome"
+					component={TutorialWelcome}
+				/>
+				
 				<Stack.Screen 
 					name="Introduction"
 					component={CreateUserPage}
@@ -48,6 +67,18 @@ const App = () => {
 					name="Login"
 					component={GoogleLogin}
 				/>
+
+				<Stack.Screen
+					name="CreateCowCaughtPages"
+					component={CreateCowCaughtPage}
+				/>	
+
+				{/* Just for testing the navigation bar on Barn Page*/}
+				<Stack.Screen
+					name="Test"
+					component={Test}
+				/>
+				
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

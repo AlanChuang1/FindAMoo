@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { Image, Text, View, ScrollView, TextInput, Pressable } from 'react-native';
-// import defaultStyles from '../css/DefaultFonts.style';
+import defaultStyles from '../css/DefaultFonts.style';
 import LevelBar from './LevelBar';
 import GearSetting from '../images/gear.svg';
 import Lock from "../images/lock.svg";
@@ -15,11 +15,12 @@ import { LEVEL1COWS, LEVEL2COWS, LEVEL3COWS, LEVEL4COWS, LEVEL5COWS } from '../i
 
 const server = axios.create({
 	baseURL: "http://localhost:5001",
+
 	timeout: 1000
 })
 
 export default function Profile() {
-	//let unlockedCows = 
+	
 	const [level, setLevel] = React.useState(1);
 	const [collectedCows, setCollectedCows] = React.useState([]);
 	
@@ -156,7 +157,7 @@ export default function Profile() {
 					{/* <StripeBG style={{ width: 1, height: 1}}/> */}
 					{/* <Lock/> */}
 					{ lockedLevel(level5, 5) }
-					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */}
+					{/* <Image source={LEVEL1COWS.cowbrown_front} style={{height:50, width:50}}/> */
 				</View>
 			</View>
 		);
@@ -169,10 +170,8 @@ export default function Profile() {
 			</View>
 		);
 	}
-
 	React.useEffect(() => {
 		// console.log("Rendering");
-
 	});
 
 	return (

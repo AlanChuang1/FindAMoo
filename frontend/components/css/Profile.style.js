@@ -18,7 +18,7 @@ export default StyleSheet.create({
     },
     gearSetting: {
         position: 'absolute',
-        top: '10%'  ,
+        top: '10%',
         left: '90%',
         height: 30,
         width: 30

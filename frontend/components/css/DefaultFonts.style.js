@@ -36,8 +36,8 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderColor: "#CACACA",
         borderRadius: 10, 
-        height: "52px", 
-        width: "239px",
+        height: 52, 
+        width: 239,
 
         shadowColor: "#000",
         shadowOffset: {
@@ -68,7 +68,7 @@ export default StyleSheet.create({
     },
     
     h1Text: {
-        fontFamily: 'Lexend',
+        //fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 40,
@@ -77,7 +77,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     h2Text: {
-        fontFamily: 'Lexend',
+        //fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 30,
@@ -86,7 +86,7 @@ export default StyleSheet.create({
         color: "#000000",
     },
     h3Text: {
-        fontFamily: 'Lexend',
+        //fontFamily: 'Lexend',
         fontStyle: 'normal',
         fontWeight: "700",
         fontSize: 20,
