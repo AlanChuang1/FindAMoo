@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import { createBottomTabNavigator, createNativeTabsNavigator } from '@react-navigation/bottom-tabs'; 
 
 import MapPage from './MapPage.js';
+import BarnPage from './BarnPage.js';
 import MapIconFocused from './images/map_active.png'; 
 import MapIconUnfocused from './images/map_inactive.png';
 
@@ -49,8 +50,8 @@ export default function MainScreen() {
 				/>
 
 				<Tab.Screen
-					name="Dummy"
-					component={MapPage}
+					name="BarnPage"
+					component={BarnPage}
 				/>
 			</Tab.Navigator>
     );

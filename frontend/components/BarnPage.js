@@ -5,9 +5,6 @@ import defaultStyles from './css/DefaultFonts.style.js';
 import SearchIcon from './images/icons/search.svg';
 import XButton from './images/icons/x-circle.svg';
 import SortIcon from './images/icons/updown_arrows.png';
-import BarnIcon from './images/icons/barn_active.svg';
-import MapIconInactive from './images/icons/map_inactive.svg';
-import ProfileIconInactive from './images/icons/profile_active-43.svg';
 import axios from 'axios';
 
 
@@ -15,7 +12,7 @@ export default function BarnPage({navigation}) {
 	const [searchInput, onChangeText] = React.useState("");
 	const [isFocused, setIsFocused] = React.useState(false);
 	const [sortOrder, changeSortOrder] = React.useState("Newest - Oldest");
-	const [showNavBar, setShowNavBar] = React.useState(true);
+	const [Cows, setCows] = React.useState([]);
 
 	async function getAllCows() { 
 		try{
@@ -26,11 +23,9 @@ export default function BarnPage({navigation}) {
 		}
 	}
 
-	var Cows = [];
-
 	React.useEffect(() => {
 		const fetchCows = async () => {
-			Cows = await getAllCows();
+			setCows(await getAllCows());
 			return Cows;
 		}
 
@@ -88,41 +83,6 @@ export default function BarnPage({navigation}) {
 		)
 	}
 
-	const displayNavBar = () => {
-		if(showNavBar === true) {
-			return(
-				<View style={styles.navigationBar}>
-					<View style={styles.icons}>
-						<TouchableOpacity>
-							<BarnIcon style={styles.barnIcon}/>
-						</TouchableOpacity>
-						<Text style={styles.barnIconText}> Barn </Text>
-					</View>
-					<View style={styles.icons}>
-						<TouchableOpacity 
-							style={styles.mapIcon}
-							onPress={() => {
-								navigation.navigate("Test")
-							}}>
-							<MapIconInactive width={45} height={45}/>
-						</TouchableOpacity>
-						<Text style={styles.otherIconText}> Map </Text>
-					</View> 
-					<View style={styles.icons}>
-						<TouchableOpacity
-							onPress={() => {
-								navigation.navigate("Test")
-							}}>
-							<ProfileIconInactive style={styles.barnIcon}/>
-						</TouchableOpacity>
-						<Text style={styles.otherIconText}> Profile </Text>
-					</View> 
-				</View>
-			);
-		}
-	}
-
-
 	return (
 		<View style={styles.container}>
 			<Text style={styles.titleText}> The Barn </Text>
@@ -155,7 +115,7 @@ export default function BarnPage({navigation}) {
 					</TouchableOpacity>
 				</View>
 				<View style={styles.ImagesArea}>
-					{/* {Cows.map(item => {
+					{Cows.map(item => {
 							return (
 								<Pressable key={item.layersID} style={styles.cowImageArea}>
 									<Text style={styles.cowNumber}>{item.layersID}</Text>
@@ -163,13 +123,11 @@ export default function BarnPage({navigation}) {
 									<Text style={styles.cowName}>{item.name}</Text>
 								</Pressable>
 							) }
-					)} */}
+					)}
 				</View> 
 			</ScrollView>
 
 			<View style={styles.bottomLine}/>
-
-			{displayNavBar()}
 		</View>
 	);
 }
