@@ -16,7 +16,7 @@ export default function BarnPage({navigation}) {
 
 	async function getAllCows() { 
 		try{
-			const promise = await axios.get('http://localhost:5001/cows/get_all_cows');
+			const promise = await axios.get('http://192.168.186.92:5001/cows/get_all_cows');
 			return promise.data;
 		} catch(err) {
 			console.log(err);
@@ -35,7 +35,6 @@ export default function BarnPage({navigation}) {
 
 	const onFocusChange = () => {
 		setIsFocused(true)
-		setShowNavBar(false)
 	}
 
 	const displayXButton = () => {
@@ -59,7 +58,6 @@ export default function BarnPage({navigation}) {
 						onChangeText("")
 						setIsFocused(false)
 						Keyboard.dismiss()
-						setShowNavBar(true)
 					}}>
 					<Text style={styles.cancelButton}> Cancel </Text>
 				</TouchableOpacity>
@@ -107,7 +105,7 @@ export default function BarnPage({navigation}) {
 
 			<View style={styles.topLine}/>
 
-			<ScrollView onTouchEnd={() => setShowNavBar(true)}>
+			<ScrollView>
 				<View>
 					<TouchableOpacity style={styles.sortButton} onPress={() => updateSortOrder()}>
 						<Image style={styles.sortIcon} source={SortIcon}/>
