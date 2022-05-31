@@ -73,7 +73,7 @@ export default function ProfilePic() {
 				<ProfilePicture></ProfilePicture>
 				<View style={styles.changePalleteSection}>
 					<View style={styles.bgPallete}>
-						<Text style={[{alignSelf:'flex-start'}, defaultStyles.h3Text]}>Background</Text>
+						<Text style={[{alignSelf:'flex-start', marginBottom: 4}, defaultStyles.h3Text]}>Background</Text>
 						<View style={styles.row}>
 							<PalleteBut bgcolor = "B12818"></PalleteBut>
 							<PalleteBut bgcolor = "E9AADF"></PalleteBut>

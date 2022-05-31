@@ -10,14 +10,14 @@ export default StyleSheet.create({
         alignContent: 'center'
     },
     titleText: {
-        marginTop: 50,
+        marginTop: 40,
         marginBottom: 27
     },
     bgPalleteContainer: {
         width: 100
     },
     bgPallete: {
-        width: '80%'
+        width: '85%'
     },
     palleteBut: {
         height: 50,
@@ -32,7 +32,6 @@ export default StyleSheet.create({
         justifyContent: 'space-between'
     },
     cowImg: {
-        // backgroundColor: 'pink',
         width: '100%',
         height: 100,
         resizeMode: 'contain'
